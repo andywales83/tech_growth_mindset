@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tech Growth Mindset</title>
+</head>
+<body>
+    {% for resource in resources %}
+        {{ resource.resource_name }} <br>
+        {{ resource.category_name }} <br>
+        {{ resource.resource_topic }} <br>
+        {{ resource.resource_description }} <br>
+        {{ resource.date_added }} <br>
+    {% endfor %}
+</body>
+</html>
