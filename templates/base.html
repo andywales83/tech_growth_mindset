@@ -34,7 +34,7 @@
     <header>
 
         <!-- Top Navbar -->
-        <nav class="nav-extended text-shadow light-blue">
+        <nav class="nav-extended text-shadow blue darken-2">
             <div class="nav-wrapper">
                 <a href="{{ url_for('get_resources') }}" class="brand-logo">Tech Growth Mindset</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
@@ -46,7 +46,7 @@
                     <li><a href="#">Admin</a></li>
                     <li><a href="#">Log In</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
                 </ul>
             </div>
         </nav>
@@ -60,7 +60,7 @@
             <li><a href="#">Admin</a></li>
             <li><a href="#">Log In</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
         </ul>
     </header>
 
