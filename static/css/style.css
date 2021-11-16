@@ -1,7 +1,9 @@
+/* ---------- General Styling ---------- */
 body {
     font-family: 'Rubik', sans-serif;
 }
 
+/* ---------- Navbar Styling ----------  */
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -12,4 +14,22 @@ body {
 
 .sidenav-logo{
     font-weight: 500;
+}
+
+.nav {
+    background-color: #03ABF4;
+}
+
+/* ---------- Button Stylings ---------- */
+.btn {
+    background-color: #FFB700;
+}
+
+.btn:hover {
+    background-color: #f2b20f;
+}
+
+/* display height for flashed messages */
+.flashes h4 {
+    line-height: 2;
 }
