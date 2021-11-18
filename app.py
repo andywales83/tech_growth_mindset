@@ -17,10 +17,11 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
+# create the link to PyMongo
 mongo = PyMongo(app)
 
 
-# Registration and Log In / Log Out Functionality
+# ----- Registration and Log In / Log Out Functionality ----- #
 
 # --- Sign Up / Register ---#
 @app.route("/register", methods=["GET", "POST"])
@@ -46,6 +47,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Congratulations! You are now signed up.")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
@@ -68,7 +70,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Your Username and/or Password are incorrect")
@@ -78,8 +83,17 @@ def login():
             # if the username doesn't exist show message
             flash("Your Username and/or Password are incorrect")
             return redirect(url_for("login"))
-    
+
     return render_template("login.html")
+
+
+# ---------- Profile Functionality ---------- #
+@app.route("/profile/<username>", methods=["POST", "GET"])
+def profile(username):
+    # retrieve the name of the session user from the database
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 @app.route("/")
