@@ -49,6 +49,39 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    """
+    User Log In - this functionality checks if the users details
+    that are input, are registered against the database already.
+    If the details match, the user is logged in. If the details do
+    not match, the user is sent back to the Log In page.
+    """
+    if request.method == "POST":
+        # Check username against database
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        # if details exist - check passwords match
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                # invalid password match
+                flash("Your Username and/or Password are incorrect")
+                return redirect(url_for("login"))
+
+        else:
+            # if the username doesn't exist show message
+            flash("Your Username and/or Password are incorrect")
+            return redirect(url_for("login"))
+    
+    return render_template("login.html")
+
+
 @app.route("/")
 @app.route("/get_resources")
 def get_resources():

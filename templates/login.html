@@ -3,12 +3,12 @@
 
     <div class="row register-header">
         <div class="col s12 m12 l12">
-            <h3 class="register-header center-align">Join us and expand your Tech Growth Mindset!</h3>
+            <h3 class="login-header center-align">Log In To Your Account</h3>
         </div>
     </div>
 
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
 
                 <!-- Username -->
@@ -18,15 +18,6 @@
                         <input id="username" name="username" type="text" minlength="5" 
                         maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
-                    </div>
-                </div>
-
-                <!-- Email -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">mail_outline</i>
-                        <input id="email" name="email" type="email" class="validate" required>
-                        <label for="email">Email</label>
                     </div>
                 </div>
 
@@ -40,10 +31,10 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
+                <!-- Login Button -->
                 <div class="row center-align">
                     <div class="col s12">
-                        <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Sign Up
+                        <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Log In
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -55,8 +46,8 @@
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Already Registered?
-                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log in here!</a>
+                Not Yet Registered?
+                <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Sign up here today!</a>
             </p>
         </div>
     </div>
