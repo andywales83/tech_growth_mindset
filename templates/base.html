@@ -41,12 +41,15 @@
                     <i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_resources') }}">Home</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">Admin</a></li>
-                    <li><a href="{{ url_for('login') }}">Log In</a></li>
-                    <li><a href="#">Log Out</a></li>
-                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -55,12 +58,15 @@
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align light-blue-text text-darken-4 sidenav-logo">Tech Growth Mindset</h4></li>
             <li><a href="{{ url_for('get_resources') }}">Home</a></li>
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Admin</a></li>
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
-            <li><a href="#">Log Out</a></li>
-            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+            {% endif %}
         </ul>
     </header>
 
