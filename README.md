@@ -1,108 +1,259 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Tech Growth Mindset**
 
-Welcome USER_NAME,
+Tech Growth Mindset is a Web-based Application, specifically built for the Data-Centric Development modules of the Code Institute's - Full Stack Software Development Diploma. The purpose of the project, is to give users access to sharable information and resources, around Technology and Self Development, through a number of different platforms. The Application is built, following the "CRUD" principles and will allow users to Create, Read, Update and Delete content. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[View the live project on Heroku](#)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Am I responsive image](#)
 
-## Gitpod Reminders
+---
+## **Contents**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- [UX Design](#ux-design)
+- [UI Design](#ux-design)
+- [Wireframes](#wireframes)
+- [Data Structure](#data-structure) 
+- [Existing Features](#existing-features)
+- [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
 ---
 
-Happy coding!
+## **UX Design**
+
+
+### **User Goals**
+
+- Be able to post, edit or delete, own content.
+- Be able to view posted content of other site users.
+- Be able to save relevant content for future reference.
+- Be able to use the application on Mobile, Tablet or Desktop devices. 
+
+
+### **Site Owners Goals**
+
+- Provide a positive experience for all users, looking to access the application.
+- To create a space for all users, to find insightful Tech and Self-Development resources, that meets their needs, whilst maintaining the positive overall experience.
+
+### **User Requirements and Expectations**
+#### Requirements 
+
+- Easily identifiable navigation
+- Clean and structured layout
+- Visually appealing elements
+- Access to insightful resources that promote a positive experience
+
+#### Expectations
+
+- When using the main navigational links, the user should be directed to each part of the application without issue.
+- Links clicked on in the user resources, should open in a new page and not overwrite the current page that the user is on.
+- The ability to Create, Read, Update and Delete resources, as set down in the sites overall purpose.
+- Notifications that tell the user when they have carried out a relevant activity.
+
+### **User Stories**
+
+#### New Visitor
+
+#### Registered User
+
+#### Site Administrator
+
+---
+
+## **UI Design**
+
+---
+
+## **Wireframes**
+
+---
+
+## **Data Structures**
+
+---
+
+## **Existing Features**
+
+---
+
+## **Future Features**
+
+---
+
+## **Technologies Used**
+
+### Development Languages
+- The project is built using the HTML, CSS, Javascript and Python programming languages.
+
+### Development Tools
+- [GitHub](https://github.com/)
+    - The cloud based repository platform, used to hold the programme files and documents upon which the application depends.
+
+- [Gitpod](https://www.gitpod.io/)
+    - The Intergrated Development Environment used to work on the programming files.
+
+- [Heroku](https://id.heroku.com/login)
+    - A cloud based platform allowing developers to build, run and operate applications.
+
+- [MongoDB](https://www.mongodb.com/)
+    - Cloud based database platform, used to hold data for applications.
+
+### Libraries, Frameworks and Dependencies
+
+
+### Design Tools
+
+- [Balsamiq](https://balsamiq.com/)
+    - Cloud or application based wireframing software, used for building low fidelity mockups. 
+---
+
+## **Testing**
+
+---
+
+## **Deployment**
+The project uses GitHub for version control, Gitpod as the development platform and Heroku for final production deployment.
+
+### **Cloning the project through GitHub:**
+- To clone the project from the GitHub repository, visit https://github.com/andywales83/tech_growth_mindset
+- Above the central file container of the repository, click the "Code" button.
+- Save the downloaded repository file to your machine and open the folder with your chosen development platform.
+
+Alternatively, you can clone the repository directly through your terminal, using:
+```
+git clone https://github.com/andywales83/tech_growth_mindset
+```
+
+In order to run work with the application, you will need to have the following technologies installed in your working environment:
+
+- [PIP3](https://pip.pypa.io/en/stable/installation/)
+- [Python3](https://www.python.org/downloads/)
+
+### **Setting Up MongoDB Atlas for Database Usage**
+The project uses MongoDB for its backend database functionality. If you wish to create your own database of information to use with this project, you will need to create an account with MongoDB Atlas. Details on how to do this, can be found here: [MongoDB Atlas](https://docs.atlas.mongodb.com/).
+
+When setting up the database, the following setps are required:
+
+1. Start by creating a Cluster (this will be the service that the database will run on).
+2. Add and authenticate a new database user.
+3. Once the cluster has been created, click the 'Browse Collections' button.
+4. Click '+ Create Database'.
+5. Click on the 'Create Collection' button.
+6. Create the data collections that you want in the database.
+7. Click on 'Insert Document'.
+8. Add the neccessary key: value pairs, to be collected in each collection.
+
+### **Flask Development Setup**
+
+In oredr to build the application, the following steps are to be taken:
+
+1. Firstly you need to install Flask. In your terminal, type:
+```
+pip3 install flask
+```
+
+2. Next is to create a few new files. First will be a Python file, that will be the foundation of the application. Your can call your file anything, but in this instance, I will call the file `app.py`:
+```
+touch app.py
+``` 
+
+3. Next we create a file called `env.py`, in which to store sensitive data using environment variables, so type:
+```
+touch env.py
+```
+
+4. Our `env.py` file should never be pushed to GitHunb and needs to be ignored. To do this first create a `gitignore`file by typing:
+```
+touch .gitignore
+```
+
+5. Within the gitignore file, add the `env.py` file and `__pycache__/` directory, which will be auto-generated shortly. 
+
+6. Now we need to add several bits of data to the `env.py` file. Open the file and add the following:
+```
+import os
+
+os.environ["IP"] = "0.0.0.0"
+os.environ["PORT"] = "5000"
+os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"
+os.environ["MONGO_URI"] = "YOUR_MONGODB_URI"
+os.environ["MONGO_DBNAME"]= "DATABASE_NAME"
+```
+
+7. Next we need to add some data to the `app.py`file. Open the file and add the following:
+```
+import os
+
+from flask import (
+Flask, flash, render_template,
+redirect, request, session, url_for)
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
+if os.path.exists("env.py"):
+    import env
+```
+
+8. Now we can create an instance of Flask, that will be stored in a variable called 'app'.
+```
+app = Flask(__name__)
+```
+
+9. Finally, we can test the application. To do this, we need tell our app how and where to run the application. Set up your 'IP' and 'PORT' environment variables in the hidden `env.py` file. Make sure to udate the `debug=True` varieable to `debug=False` before final deployment.
+```
+if __name__ == "__main__":
+app.run(host=os.environ.get("IP"),
+port=int(os.environ.get("PORT")),
+debug=True)
+```
+
+10. You can now run your application from the command line using:
+```
+python3 app.py
+```
+
+### **Deploy the application to Heroku**
+
+1. Before you create your Heroku application, you need to setup some files that Heroku needs
+to run the app.
+
+2. First, you need to tell Heroku which applications and dependencies are required to run our app. In the terminal, type:
+```
+pip3 freeze --local > requirements.txt
+```
+
+3. Next is the Procfile. This is what Heroku looks for to know which file runs the app, and how to
+run it. In the terminal, type:
+```
+echo web: python app.py
+```
+- The Procfile might add a blank line at the bottom, and sometimes this can cause problems, when running our app on Heroku, so just delete that line and save the file.
+
+4. Now head to [Heroku.com](https://id.heroku.com/login) and create an account. When you are logged in, click on the button labeled "New" and select "Create new app".
+
+5. Give your app a name and select a local location.
+
+6. On the Heroku dashbord from within your app, click on the 'GitHub - Connect to GitHub' button and serach for the name of the GitHub relevant repository. Then click 'Connect'.
+
+7. When the repository is showing as connected, and before selecting 'Enable Automatic Deploys', click on the settings tab for the app, and then click on 'Reveal Config Vars'. Here you will tell Heroku, which variables are required. These will be the key:value environment variables, from the `env.py` file:
+```
+["IP"] = "0.0.0.0"
+["PORT"] = "5000"
+["SECRET_KEY"] = "YOUR_SECRET_KEY"
+["MONGO_URI"] = "YOUR_MONGODB_URI"
+["MONGO_DBNAME"]= "DATABASE_NAME"
+``` 
+
+8. Next, commit the `requirements.txt` and `procfile` to GitHub, to ensure all files are available on the repository.
+
+9. Finally, head back to Heroku and click on the 'Enable Automatic Deploys' button. Heroku will now start building the application from the GitHub repository.
+
+10. Once the application has been built, click on the 'Open App' button on the dashboard.
+---
+
+
+
+## Credits
