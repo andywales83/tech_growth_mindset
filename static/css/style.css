@@ -1,6 +1,19 @@
+/* ---------- Root Variables ---------- */
+
+:root {
+    --main-text: #303030;
+    --ivory: #F1FAEE;
+    --light-blue: #A8DADC;
+    --mid-blue: #457B9D;
+    --deep-blue: #1d3557;
+    --orange: #FFB700;
+    --orange-accent: #f89d0b;
+}
+
 /* ---------- General Styling ---------- */
 body {
     font-family: 'Rubik', sans-serif;
+    color: var(--main-text);
 }
 
 /* ---------- Navbar Styling ----------  */
@@ -17,16 +30,16 @@ body {
 }
 
 .nav {
-    background-color: #03ABF4;
+    background-color: var(--mid-blue);
 }
 
 /* ---------- Button Stylings ---------- */
 .btn {
-    background-color: #FFB700;
+    background-color: var(--orange);
 }
 
 .btn:hover {
-    background-color: #f2b20f;
+    background-color: var(--orange-accent);
 }
 
 /* display height for flashed messages */
