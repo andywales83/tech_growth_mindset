@@ -9,22 +9,21 @@
             <div class="row card resource-card">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
-                    <input id="resource_title" name="resource_title" type="text" class="validate" required>
-                    <label for="resource_title">Resource Title</label>
+                    <input id="resource_name" name="resource_name" type="text" class="validate" required>
+                    <label for="resource_name">Resource Title</label>
                 </div>
             </div>
             
             <div class="row card resource-card">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">folder_open</i>
-                    <select class="resource_category validate" required>
+                    <select class="category_name validate" required>
                         <option value="" disabled selected>Choose Category</option>
-                        <option value="1">Book</option>
-                        <option value="2">Website</option>
-                        <option value="3">Blog</option>
-                        <option value="4">Video</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name}}">{{ category.category_name }}</option>
+                        {% endfor %}
                     </select>
-                    <label for="resource_category">Resource Category</label>
+                    <label for="category_name">Resource Category</label>
                 </div>
             </div>
 
@@ -33,8 +32,9 @@
                     <i class="material-icons prefix">chat</i>
                     <select class="resource_topic validate" required>
                         <option value="" disabled selected>Choose Topic</option>
-                        <option value="1">Technology</option>
-                        <option value="2">Self Development</option>
+                        {% for topic in topics %}
+                            <option value="{{ topic.topic_name }}">{{ topic.topic_name }}</option>
+                        {% endfor %}                        
                     </select>
                     <label for="resource_topic">Resource Topic</label>
                 </div>
