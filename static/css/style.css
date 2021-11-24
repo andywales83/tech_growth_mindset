@@ -50,3 +50,7 @@ body {
 .card {
     background-color: var(--light-blue);
 }
+
+.resource-card {
+    background-color: var(--ivory);
+}

@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 
 # ----- Registration and Log In / Log Out Functionality ----- #
 
-# --- Sign Up / Register ---#
+# --- Sign Up / Register Functionality ---#
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -51,6 +51,7 @@ def register():
     return render_template("register.html")
 
 
+# ----- Log In Functionality ----- #
 @app.route("/login", methods=["POST", "GET"])
 def login():
     """
@@ -87,12 +88,18 @@ def login():
     return render_template("login.html")
 
 
+# ----- Log Out Functionality ----- #
 @app.route("/logout")
 def logout():
     # remove user session cookies
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_resource")
+def add_resource():
+    return render_template("add_resource.html")
 
 
 # ---------- Profile Functionality ---------- #

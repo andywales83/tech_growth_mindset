@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2 class="resource-header center-align">Add Resource</h2>
+
+
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row card resource-card">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">edit</i>
+                    <input id="resource_title" name="resource_title" type="text" class="validate" required>
+                    <label for="resource_title">Resource Title</label>
+                </div>
+            </div>
+            
+            <div class="row card resource-card">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">folder_open</i>
+                    <select class="resource_category validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        <option value="1">Book</option>
+                        <option value="2">Website</option>
+                        <option value="3">Blog</option>
+                        <option value="4">Video</option>
+                    </select>
+                    <label for="resource_category">Resource Category</label>
+                </div>
+            </div>
+
+            <div class="row card resource-card">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">chat</i>
+                    <select class="resource_topic validate" required>
+                        <option value="" disabled selected>Choose Topic</option>
+                        <option value="1">Technology</option>
+                        <option value="2">Self Development</option>
+                    </select>
+                    <label for="resource_topic">Resource Topic</label>
+                </div>
+            </div>
+
+            <div class="row card resource-card">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">date_range</i>
+                    <input id="date_added" name="date_added" type="text" class="datepicker validate" required>
+                    <label for="date_added">Date Added</label>
+                </div>
+            </div>
+            
+            <div class="row card resource-card">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">description</i>
+                            <textarea id="resource_description" class="materialize-textarea validate" 
+                            minlength="5" maxlength="200" required ></textarea>
+                            <label for="resource_description">Description</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
