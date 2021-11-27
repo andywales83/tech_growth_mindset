@@ -69,12 +69,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+               existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Your Username and/or Password are incorrect")
@@ -98,8 +98,22 @@ def logout():
 
 
 # ---------- Resource CRUD Functionality ---------- #
-@app.route("/add_resource")
+@app.route("/add_resource", methods=["GET", "POST"])
 def add_resource():
+    if request.method == "POST":
+        form_data = {
+            "resource_name": request.form.get("resource_name"),
+            "category_name": request.form.get("category_name"),
+            "resource_topic": request.form.get("resource_topic"),
+            "date_added": request.form.get("date_added"),
+            "resource_description": request.form.get("resource_description"),
+            "resource_link": request.form.get("resource_link"),
+            "created_by ": session["user"]
+        }
+        mongo.db.resources.insert_one(form_data)
+        flash("Awesome! Your resource has been added.")
+        return redirect(url_for('get_resources'))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
     return render_template("add_resource.html", categories=categories,

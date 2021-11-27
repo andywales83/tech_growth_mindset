@@ -5,7 +5,7 @@
 
     {% for resource in resources %}
         <div class="row">
-            <div class="col s12 m6">          
+            <div class="col s12">          
                 <div class="card">
                     <div class="card-content">
                         <!-- resource title -->
@@ -14,13 +14,15 @@
                         <!-- list for category, topic and date added -->
                         <ul>
                           <li class="category-name">Category: {{ resource.category_name }}</li>
-                          <li class="category-topic">Topic: {{ resource.resource_topic }}</li>
+                          <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
                           <li class="date-added">Date added: {{ resource.date_added }}</li>
                         </ul>
 
                         <p class="resource-description">{{ resource.resource_description }}</p>
                         <!-- link to resource -->
                         <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
+
+                        <p><em>Added by: {{ resource.created_by}}</em></p>
                     </div>
                 </div>          
             </div>

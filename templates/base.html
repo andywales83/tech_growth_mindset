@@ -40,10 +40,10 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                     <i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_resources') }}">Home</a></li>
+                    <li><a href="{{ url_for('add_resource') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_resource') }}">Resources</a></li>
+                        <li><a href="{{ url_for('get_resources') }}">Resources</a></li>
                         <li><a href="#">Admin</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -57,10 +57,10 @@
         <!-- Mobile Sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align light-blue-text text-darken-4 sidenav-logo">Tech Growth Mindset</h4></li>
-            <li><a href="{{ url_for('get_resources') }}">Home</a></li>
+            <li><a href="{{ url_for('add_resource') }}">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_resource') }}">Resources</a></li>
+                <li><a href="{{ url_for('get_resources') }}">Resources</a></li>
                 <li><a href="#">Admin</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}

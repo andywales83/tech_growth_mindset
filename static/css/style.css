@@ -48,6 +48,11 @@ body {
     line-height: 2;
 }
 
+/* ----------- Resource Card Styling ---------- */
 .card {
     background-color: var(--light-blue);
+}
+
+.card label {
+    color: var(--main-text);
 }
