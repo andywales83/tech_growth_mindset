@@ -3,7 +3,6 @@
 
     <h2 class="resource-header center-align">Add Resource</h2>
 
-
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('add_resource') }}">
             
@@ -20,15 +19,15 @@
             <div class="row card resource-card">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">folder_open</i>
-                    <select id="category_name" name="category_name "class="validate" required>
+                    <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
-                    <label for="category_name">Resource Category</label>
-                </div>
-            </div>
+					<label for="category_name">Resource Category</label>
+				</div>
+			</div>
 
             <!----- Resource Topic Card ----->
             <div class="row card resource-card">

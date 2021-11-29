@@ -26,6 +26,14 @@ mongo = PyMongo(app)
 # --- Sign Up / Register Functionality ---#
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    User registration - this functionality will take user submitted details,
+    and check them against the database to see if they already exist. If they
+    already exist, the user will be shown a message telling them that the
+    details exist and they are redirected back to the page. If the details do
+    not exist, the details are submitted to the database and a success message
+    is shown.
+    """
     if request.method == "POST":
         # check if the username is already registered on the database.
         existing_user = mongo.db.users.find_one(
@@ -33,7 +41,7 @@ def register():
 
         # if the username exists in the database, alert user
         if existing_user:
-            flash("Ooops! Its looks like this Username already exists.")
+            flash("Ooops! Its looks like this username already exists.")
             # redirect the user back to the sign up page.
             return redirect(url_for('register'))
 
@@ -108,11 +116,11 @@ def add_resource():
             "date_added": request.form.get("date_added"),
             "resource_description": request.form.get("resource_description"),
             "resource_link": request.form.get("resource_link"),
-            "created_by ": session["user"]
+            "created_by": session["user"]
         }
         mongo.db.resources.insert_one(form_data)
         flash("Awesome! Your resource has been added.")
-        return redirect(url_for('get_resources'))
+        return redirect(url_for('add_resource'))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)

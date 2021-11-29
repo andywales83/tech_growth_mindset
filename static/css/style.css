@@ -5,6 +5,7 @@
     --ivory: #F1FAEE;
     --light-blue: #A8DADC;
     --mid-blue: #457B9D;
+    --mid-blue-accent: #2e698d;
     --deep-blue: #1d3557;
     --orange: #FFB700;
     --orange-accent: #f89d0b;
@@ -39,9 +40,31 @@ body {
     background-color: var(--orange);
 }
 
+.btn-small {
+    margin: auto 10px;
+}
+
+.btn-small-edit{
+    background-color: var(--orange);
+}
+
+.btn-small-edit:hover {
+    background-color: var(--orange-accent);
+}
+
+.btn-small-done{
+    background-color: var(--mid-blue);
+}
+
+.btn-small-done:hover {
+    background-color: var(--mid-blue-accent);
+}
+
 .btn:hover {
     background-color: var(--orange-accent);
 }
+
+/* ---------- Flash Message Styling ---------- */
 
 /* display height for flashed messages */
 .flashes h4 {

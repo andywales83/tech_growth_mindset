@@ -4,28 +4,36 @@
     <h2 class="resource-header center-align">Resources</h2>
 
     {% for resource in resources %}
-        <div class="row">
-            <div class="col s12">          
+        <div class="row">           
+            <div class="col s12 m12 l12 xl12">                                      
                 <div class="card">
                     <div class="card-content">
+                        <div class="row valign-wrapper">
+                            <div class="col s8 m8 l8 xl8">
+                                <h3 class="resource-name">{{ resource.resource_name }}</h3>
+                            </div>
+                            <div class="col s4">
+                                <a class="waves-effect waves-light btn-small btn-small-edit"><i class="material-icons left">edit_note</i>Edit</a>
+                                <a class="waves-effect waves-light btn-small btn-small-done"><i class="material-icons left">playlist_add_check</i>Done</a>
+                            </div>
+                        </div>
                         <!-- resource title -->
-                        <h3 class="resource-name">{{ resource.resource_name }}</h3>
 
                         <!-- list for category, topic and date added -->
                         <ul>
-                          <li class="category-name">Category: {{ resource.category_name }}</li>
-                          <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
-                          <li class="date-added">Date added: {{ resource.date_added }}</li>
+                        <li class="category-name">Category: {{ resource.category_name }}</li>
+                        <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
+                        <li class="date-added">Date added: {{ resource.date_added }}</li>
                         </ul>
 
                         <p class="resource-description">{{ resource.resource_description }}</p>
                         <!-- link to resource -->
                         <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
 
-                        <p><em>Added by: {{ resource.created_by}}</em></p>
+                        <p><em>Added by: {{ resource.created_by }}</em></p>
                     </div>
-                </div>          
-            </div>
+                </div>                                         
+            </div>           
         </div>
     {% endfor %}
 
