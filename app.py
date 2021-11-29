@@ -21,7 +21,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# ----- Registration and Log In / Log Out Functionality ----- #
+# ----------------------------------------------- #
+# Registration and Log In / Log Out Functionality #
+# ----------------------------------------------- #
 
 # --- Sign Up / Register Functionality ---#
 @app.route("/register", methods=["GET", "POST"])
@@ -105,7 +107,11 @@ def logout():
     return redirect(url_for("login"))
 
 
-# ---------- Resource CRUD Functionality ---------- #
+# --------------------------- #
+# Resource CRUD Functionality #
+# --------------------------- #
+
+# ----- Create a resource functionality -----#
 @app.route("/add_resource", methods=["GET", "POST"])
 def add_resource():
     if request.method == "POST":
@@ -126,6 +132,15 @@ def add_resource():
     topics = mongo.db.topics.find().sort("topic_name", 1)
     return render_template("add_resource.html", categories=categories,
                            topics=topics)
+
+
+@app.route("/edit_resource/<resource_id>", methods=["POST", "GET"])
+def edit_resource(resource_id):
+    resource = mongo.db.resources.find_one({"_id": ObjectId(resource_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+    return render_template("edit_resource.html", resource=resource,
+                           categories=categories, topics=topics)
 
 
 # ---------- Profile Functionality ---------- #
