@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="landing">
+        <div class="row">
+          <!-- landing text -->
+            <div class="col s12 m12 l12 xl12 center">
+                <h1 class="header">Tech Growth Mindset</h1>
+                <p class="light">A Technical and Professional Growth resource site!</p>
+            </div>
+        </div>
+        <div class="row center">
+            <a href="{{ url_for('register') }}" class="btn btn-large waves-effect waves-light">Register</a>
+        </div>
+    </div>
+
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4 l4 xl4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons medium">menu_book</i></h2>
+            <h5 class="center">View User Resources</h5>
+            <br>
+            <p class="light">View resources submitted by other users and bookmark your favourites for future reference.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+{% endblock%}

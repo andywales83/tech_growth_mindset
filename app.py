@@ -45,7 +45,7 @@ def register():
         if existing_user:
             flash("Ooops! Its looks like this username already exists.")
             # redirect the user back to the sign up page.
-            return redirect(url_for('register'))
+            return redirect(url_for("register"))
 
         register = {
             "username": request.form.get("username").lower(),
@@ -54,7 +54,7 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # put the new user into 'session' cookie
+        # put the new user into "session" cookie
         session["user"] = request.form.get("username").lower()
         flash("Congratulations! You are now signed up.")
         return redirect(url_for("profile", username=session["user"]))
@@ -111,7 +111,7 @@ def logout():
 # Resource CRUD Functionality #
 # --------------------------- #
 
-# ----- Create a resource functionality -----#
+# ----- Create a resource functionality ----- #
 @app.route("/add_resource", methods=["GET", "POST"])
 def add_resource():
     if request.method == "POST":
@@ -126,7 +126,7 @@ def add_resource():
         }
         mongo.db.resources.insert_one(form_data)
         flash("Awesome! Your resource has been added.")
-        return redirect(url_for('add_resource'))
+        return redirect(url_for("add_resource"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
@@ -134,6 +134,7 @@ def add_resource():
                            topics=topics)
 
 
+# ----- Edit Resource Functionality ----- #
 @app.route("/edit_resource/<resource_id>", methods=["POST", "GET"])
 def edit_resource(resource_id):
     resource = mongo.db.resources.find_one({"_id": ObjectId(resource_id)})
@@ -157,6 +158,11 @@ def profile(username):
 
 
 @app.route("/")
+@app.route("/index")
+def index():
+    return render_template("index.html")
+
+
 @app.route("/get_resources")
 def get_resources():
     resources = list(mongo.db.resources.find())

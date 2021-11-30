@@ -16,6 +16,13 @@ body {
     font-family: 'Rubik', sans-serif;
     color: var(--main-text);
     background-color: var(--ivory);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 /* ---------- Navbar Styling ----------  */
@@ -35,11 +42,28 @@ body {
     background-color: var(--mid-blue);
 }
 
+@media only screen and (max-width: 600px){
+    .nav .brand-logo{
+        font-size: 1.7em;
+        }
+    }
+
+/* ---------- Home Page Styling ---------- */
+
+   
 /* ---------- Button Stylings ---------- */
 .btn {
     background-color: var(--orange);
 }
 
+.btn:hover {
+    background-color: var(--orange-accent);
+}
+
+.btn:focus {
+    background-color: var(--orange-accent);
+}
+ 
 .btn-small {
     margin: auto 10px;
 }
@@ -60,9 +84,11 @@ body {
     background-color: var(--mid-blue-accent);
 }
 
-.btn:hover {
-    background-color: var(--orange-accent);
-}
+@media only screen and (max-width: 600px){
+    .nav .brand-logo{
+        font-size: 1.7em;
+        }
+    }
 
 /* ---------- Flash Message Styling ---------- */
 

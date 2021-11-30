@@ -36,11 +36,11 @@
         <!-- Top Navbar -->
         <nav class="nav nav-extended text-shadow">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_resources') }}" class="brand-logo">Tech Growth Mindset</a>
+                <a href="{{ url_for('get_resources') }}" class="brand-logo left">Tech Growth Mindset</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                     <i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('add_resource') }}">Home</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('get_resources') }}">Resources</a></li>
@@ -57,7 +57,7 @@
         <!-- Mobile Sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align light-blue-text text-darken-4 sidenav-logo">Tech Growth Mindset</h4></li>
-            <li><a href="{{ url_for('add_resource') }}">Home</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('get_resources') }}">Resources</a></li>
@@ -87,6 +87,31 @@
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer class="page-footer">   
+        <div class="row">
+            <div class="col s12 l4">
+                <h5 class="white-text">Tech Growth Mindset</h5>
+                <p class="grey-text text-lighten-4">A space where anyone can review, create and share resources, based on Technology and professional development.</p>  
+            </div>
+            <div class="social-links">
+                <div class="col s12 l4">
+                    <h5 class="white-text">Connect With Us</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>             
+            <div class="footer-copyright">
+                <div class="col s12 l4">
+                    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                </div>        
+            </div>            
+        </div>
+    </footer>
     
     <!-- minified JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2 class="resource-header center-align">Add Resource</h2>
+    <div class="row resource-header">
+        <div class="col s12 m12 l12">
+            <h2 class="center-align">Add Resources</h2>
+        </div>
+    </div>
 
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('add_resource') }}">
