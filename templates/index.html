@@ -2,18 +2,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="landing">
+  <div class="landing valign-wrapper">
         <div class="row">
           <!-- landing text -->
-            <div class="col s12 m12 l12 xl12 center">
-                <h1 class="header">Tech Growth Mindset</h1>
-                <p class="light">A Technical and Professional Growth resource site!</p>
+            <div class="landing-text">
+                <div class="col s12 m12 l6 xl6 center">
+                    <h1 class="header">Tech Growth Mindset</h1>
+                    <p class="light">A Technical and Professional Growth site, giving users access to content and resources in Technology and professional development!</p>
+                    <a href="{{ url_for('register') }}" class="btn btn-large waves-effect waves-light">Register</a>
+                </div>
             </div>
-        </div>
-        <div class="row center">
-            <a href="{{ url_for('register') }}" class="btn btn-large waves-effect waves-light">Register</a>
-        </div>
-    </div>
+            <div class="landing-img">
+                <div class="col s12 m12 l6 xl6 center">
+                    <img src="../static/images/artificial-intelligence.png" alt="" class="responsive-img">
+                </div>
+            </div>
+        </div>               
+    </div>  
 
     <div class="section">
       <!--   Icon Section   -->
