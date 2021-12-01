@@ -58,6 +58,7 @@ main {
 
 .landing {
     margin-top: 70px;
+    margin-bottom: 50px;
 }
 
 .landing-text h1 {
@@ -66,17 +67,31 @@ main {
 
 .landing-text p {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
-/* @media only screen and (max-width: 600px){} */
+@media only screen and (max-width: 600px){
+    .landing {
+        margin-top: 30px;
+        margin-bottom: 0px;
+    }
+
+    .landing-text {
+        padding: 10px
+    }
+
+    .btn {
+        background-color: var(--orange);
+        margin-bottom: 30px;
+    }
+}
 
 /* ---------- Footer Stylings ---------- */
 .page-footer {
     background-color: var(--mid-blue);
 }
 
-ul {
+footer ul {
     display: flex;
     justify-content: space-evenly;
 }
