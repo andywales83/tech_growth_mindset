@@ -158,6 +158,14 @@ def edit_resource(resource_id):
                            categories=categories, topics=topics)
 
 
+# ---------- Delete Resource Functionality ---------- #
+@app.route("/delete_resource/<resource_id>")
+def delete_resource(resource_id):
+    mongo.db.resources.remove({"_id": ObjectId(resource_id)})
+    flash("Your resource has been deleted!")
+    return redirect(url_for("get_resources"))
+
+
 # ---------- Profile Functionality ---------- #
 @app.route("/profile/<username>", methods=["POST", "GET"])
 def profile(username):

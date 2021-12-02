@@ -9,6 +9,9 @@
     --deep-blue: #1d3557;
     --orange: #FFB700;
     --orange-accent: #f89d0b;
+    --red: #C62828;
+    --red-accent: #9c2020;
+    --black: #000; 
 }
 
 /* ---------- General Styling ---------- */
@@ -32,6 +35,7 @@ main {
 
 .brand-logo{
     font-weight: 500;
+    margin-left: 20px;
 }
 
 .sidenav-logo{
@@ -54,7 +58,7 @@ main {
     width: 100%
 }
 
-/* landing image and text */
+/* Landing Image and Text */
 
 .landing {
     margin-top: 70px;
@@ -127,6 +131,35 @@ footer ul {
 
 .btn-small-done:hover {
     background-color: var(--mid-blue-accent);
+}
+
+.edit-btn {
+    margin-right: 20px;
+}
+
+.cancel-btn {
+    background-color: var(--red);
+    margin-left: 20px;
+}
+
+.cancel-btn:hover {
+    background-color: var(--red-accent);
+}
+
+.edit-res-btn {
+    background-color: var(--orange);
+}
+
+.edit-res-btn:hover {
+    background-color: var(--orange-accent);
+}
+
+.delete-res-btn {
+    background-color: var(--red);
+}
+
+.delete-res-btn:hover {
+    background-color: var(--red-accent);
 }
 
 @media only screen and (max-width: 600px){
