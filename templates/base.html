@@ -47,7 +47,9 @@
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('get_resources') }}">Resources</a></li>
-                        <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+                        {% if session.user|lower == "admin"|lower %}
+                            <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+                        {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -64,7 +66,9 @@
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('get_resources') }}">Resources</a></li>
-                <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+                {% endif %}
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -96,7 +100,7 @@
             <div class="title">
                 <div class="col s12 m12 l4 center">
                     <h5 class="white-text">Tech Growth Mindset</h5>
-                    <p class="grey-text text-lighten-4">A space where anyone can review, create and share resources, based on Technology and professional development.</p>  
+                    <p class="grey-text text-lighten-4">A space where anyone can review, create and share resources, based on Technology and Professional & Personal Development.</p>  
                 </div>
             </div>
             <div>

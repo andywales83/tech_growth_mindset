@@ -22,6 +22,11 @@ mongo = PyMongo(app)
 
 
 # ----- Create Admin Function ----- #
+def admin():
+    """
+    Define admin user.
+    """
+    return session["user"] == "admin"
 
 
 # ----------------------------------------------- #

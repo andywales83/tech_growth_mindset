@@ -105,6 +105,10 @@ footer ul {
     background-color: var(--orange);
 }
 
+.btn-large {
+    background-color: none;
+}
+
 .btn:hover {
     background-color: var(--orange-accent);
 }
@@ -162,11 +166,13 @@ footer ul {
     background-color: var(--red-accent);
 }
 
-@media only screen and (max-width: 600px){
-    .nav .brand-logo{
-        font-size: 1.7em;
-        }
-    }
+.btn-floating {
+    background-color: var(--red);
+}
+
+.btn-floating:hover {
+    background-color: var(--red-accent);
+}
 
 /* ---------- Flash Message Styling ---------- */
 
