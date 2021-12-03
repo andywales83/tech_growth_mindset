@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col s12 m12 l12 center">
+            <h3 class="card-title">Add a New Category</h3>
+        </div>
+    </div>
+
+    <!-- Add Category Form -->
+    <div class="row">
+        <div class="card">
+            
+            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_category') }}">
+                <!-- Add Category Name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">folder_open</i>
+                        <input id="category_name" name="category_name" type="text" class="validate">
+                        <label for="category_name">Add Category</label>
+                    </div>
+                </div>
+
+                <!-- Form Buttons -->
+                <div class="row center-align">
+                    <div class="col s12 center-align">
+                        
+                        <!-- Add Button -->
+                        <button class="btn btn-large waves-effect waves-light edit-btn" type="submit">Add Category
+                            <i class="material-icons right">edit_note</i>
+                        </button>
+
+                        <!-- Cancel Button -->
+                        <a href="{{ url_for('admin_dashboard') }}" class="btn-large waves-effect waves-light cancel-btn">Cancel
+                            <i class="material-icons right">cancel_presentation</i>
+                        </a>
+
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

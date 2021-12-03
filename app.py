@@ -21,6 +21,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# ----- Create Admin Function ----- #
+def admin():
+    return session["user"] == "admin"
+
+
 # ----------------------------------------------- #
 # Registration and Log In / Log Out Functionality #
 # ----------------------------------------------- #
@@ -164,6 +169,29 @@ def delete_resource(resource_id):
     mongo.db.resources.remove({"_id": ObjectId(resource_id)})
     flash("Your resource has been deleted!")
     return redirect(url_for("get_resources"))
+
+
+# ---------- Admin Functionality ---------- #
+@app.route("/admin_dashboard")
+def admin_dashboard():
+    return render_template("admin_dashboard.html")
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if admin():
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.insert_one(category)
+            flash("Your new category was added")
+            return redirect(url_for("admin_dashboard"))
+        else:
+            flash("You need to be an Admin to view this page!")
+            return redirect(url_for("login"))
+
+    return render_template("add_category.html")
 
 
 # ---------- Profile Functionality ---------- #
