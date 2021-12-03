@@ -22,8 +22,6 @@ mongo = PyMongo(app)
 
 
 # ----- Create Admin Function ----- #
-def admin():
-    return session["user"] == "admin"
 
 
 # ----------------------------------------------- #
@@ -179,19 +177,28 @@ def admin_dashboard():
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    if admin():
-        if request.method == "POST":
-            category = {
-                "category_name": request.form.get("category_name")
-            }
-            mongo.db.categories.insert_one(category)
-            flash("Your new category was added")
-            return redirect(url_for("admin_dashboard"))
-        else:
-            flash("You need to be an Admin to view this page!")
-            return redirect(url_for("login"))
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("Your new category was added!")
+        return redirect(url_for("admin_dashboard"))
 
     return render_template("add_category.html")
+
+
+@app.route("/add_topic")
+def add_topic():
+    if request.method == "POST":
+        topic = {
+            "topic_name": request.form.get("topic_name")
+        }
+        mongo.db.topics.insert_one(topic)
+        flash("Your new topic was added!")
+        return redirect(url_for("admin_dashboard"))
+
+    return render_template("add_topic.html")
 
 
 # ---------- Profile Functionality ---------- #
