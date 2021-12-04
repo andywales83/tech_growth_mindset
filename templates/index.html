@@ -1,55 +1,99 @@
-
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="landing valign-wrapper">
-        <div class="row">
-            <!-- landing text -->
-            <div class="landing-text">
-                <div class="col s12 m12 l6 xl6 center">
-                    <h1 class="header">Tech Growth Mindset</h1>
-                    <p class="light">A Technical and Professional Growth site, giving users access to content and resources in Technology and Professional & Personal Development!</p>
-                    <a href="{{ url_for('register') }}" class="btn btn-large waves-effect waves-light">Register</a>
-                </div>
+<div class="landing valign-wrapper">
+    <div class="row">
+        <!-- landing text -->
+        <div class="landing-text">
+            <div class="col s12 m12 l6 xl6 center">
+                <h1 class="header">Tech Growth Mindset</h1>
+                <p class="light">A Technical and Professional Growth site, giving users access to content and resources
+                    in Technology and Professional & Personal Development!</p>
+                <a href="{{ url_for('register') }}" class="btn btn-large waves-effect waves-light">Register</a>
             </div>
-            <div class="landing-img">
-                <div class="col s12 m12 l6 xl6 center">
-                    <img src="../static/images/artificial-intelligence.png" alt="" class="responsive-img">
-                </div>
-            </div>
-        </div>               
-    </div>  
-
-    <div class="section content-section">
-        <!--   Icon Section   -->
-        <div class="row">
-            <div class="col s12 m4 l4 xl4">
-                <div class="icon-block">
-                    <h2 class="center"><i class="material-icons medium">menu_book</i></h2>
-                    <h5 class="center">View User Resources</h5>
-                    <br>
-                    <p class="light">View resources submitted by other users and bookmark your favourites for future reference.</p>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center"><i class="material-icons medium">group</i></h2>
-                    <h5 class="center">Create Your Own Resources</h5>
-                    <br>
-                    <p class="light">Create and build your own favourite resources to share with the community.</p>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center"><i class="material-icons medium">settings</i></h2>
-                    <h5 class="center">Easy to work with</h5>
-                    <br>
-                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                </div>
+        </div>
+        <div class="landing-img">
+            <div class="col s12 m12 l6 xl6 center">
+                <img src="../static/images/artificial-intelligence.png" alt="" class="responsive-img">
             </div>
         </div>
     </div>
+</div>
 
-{% endblock%}
+<div class="section content-section">
+    <!--   Icon Section   -->
+    <div class="row">
+        <div class="col s12 m4 l4 xl4">
+            <div class="icon-block">
+                <h2 class="center"><i class="material-icons medium">menu_book</i></h2>
+                <h5 class="center">View User Resources</h5>
+                <br>
+                <p class="light">View resources submitted by other users and bookmark your favourites for future
+                    reference.</p>
+            </div>
+        </div>
+
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <h2 class="center"><i class="material-icons medium">group</i></h2>
+                <h5 class="center">Create Your Own Resources</h5>
+                <br>
+                <p class="light">Create and build your own favourite resources to share with the community.</p>
+            </div>
+        </div>
+
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <h2 class="center"><i class="material-icons medium">settings</i></h2>
+                <h5 class="center">Easy to work with</h5>
+                <br>
+                <p class="light">We have provided detailed documentation as well as specific code examples to help new
+                    users get started. We are also always open to feedback and can answer any questions a user may have
+                    about Materialize.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Resources Section -->
+<div class="section featured-section">
+    <div class="featured-wrapper">
+        <h3 class="center-align">Weekly Featured Resources</h3>
+    </div>
+
+    
+    <div class="carousel">
+        {%for resource in resources%}
+            <div class="row">
+                <div class="col s12 m12 l12 xl12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s8 m8 l8 xl8">
+                                    <h3 class="resource-name">{{ resource.resource_name }}</h3>
+                                </div>
+                            </div>
+                            <!-- resource title -->
+
+                            <!-- list for category, topic and date added -->
+                            <ul>
+                                <li class="category-name">Category: {{ resource.category_name }}</li>
+                                <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
+                                <li class="date-added">Date added: {{ resource.date_added }}</li>
+                            </ul>
+
+                            <p class="resource-description">{{ resource.resource_description }}</p>
+                            <!-- link to resource -->
+                            <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
+
+                            <p><em>Added by: {{ resource.created_by }}</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+
+
+    {% endblock%}

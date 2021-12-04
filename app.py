@@ -134,7 +134,7 @@ def add_resource():
         }
         mongo.db.resources.insert_one(form_data)
         flash("Awesome! Your resource has been added.")
-        return redirect(url_for("add_resource"))
+        return redirect(url_for("get_resources"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
