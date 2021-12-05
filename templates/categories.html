@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row resource-header center-align">
+        <div class="col s12 m12 l12">
+            <h2>Current Categories</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for category in categories %}
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content white-text">
+                    <span class="card-title">{{ category.category_name }}</span>
+                </div>
+                <div class="card-action">
+                    <a href="#">Edit Category</a>
+                    <a href="#">Delete Category</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

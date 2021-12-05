@@ -28,6 +28,10 @@ main {
     flex: 1 0 auto;
 }
 
+.card-panel {
+    background-color: var(--light-blue);
+}
+
 /* ---------- Navbar Styling ----------  */
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -182,10 +186,15 @@ footer ul {
 }
 
 /* ----------- Resource Card Styling ---------- */
-.card {
+.card, .card-panel {
     background-color: var(--light-blue);
 }
 
 .card label {
     color: var(--main-text);
+}
+
+/* ---------- Admin Page Styling ---------- */
+.category-card, .topic-card {
+    background-color: var(--mid-blue);
 }

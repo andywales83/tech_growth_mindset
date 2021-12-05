@@ -198,6 +198,13 @@ def add_category():
     return render_template("add_category.html")
 
 
+# ---------- Get Categories From DB ---------- #
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
+
+
 # ---------- Edit Category ---------- #
 @app.route("/edit_category/<category_id>", methods=["POST", "GET"])
 def edit_category(category_id):
@@ -219,8 +226,10 @@ def add_topic():
     return render_template("add_topic.html")
 
 
-# ---------- Edit Topic ---------- #
-
+@app.route("/get_topics")
+def get_topics():
+    topics = list(mongo.db.topics.find().sort("topic_name", 1))
+    return render_template("topics.html", topics=topics)
 
 
 # ---------- Profile Functionality ---------- #

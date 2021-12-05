@@ -11,96 +11,92 @@
 
     <!-- Add Category and Topic Cards -->
     <div class="container">
-        <div class="row">
-            <div class="col s12 m6 l6 xl6">
-                
-                <!-- Add a Category Function -->
-                <div class="card blue-grey darken-1">
-                    <div class="card-content">
-                        <!-- Modal Trigger -->
-                        <a class="btn-floating btn-large waves-effect waves-light modal-trigger right"
-                        href="#category-modal"><i class="material-icons">question_mark</i></a>
-
-                        <!-- Modal Structure -->
-                        <div id="category-modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Choosing a Category</h4>
-                                <p>A "Category" can be anything from an Event, an Application or a piece of Software, that the user has choosen to link to!</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                            </div>
-                        </div>
-                        <h4 class="card-title">Add a New Category</h4>
-                        <p>Here you can manage the available Categories.</p>
-                        <a href="{{ url_for('add_category') }}">This is a link</a>
-                    </div>
+        <div class="card-panel">
+            <div class="row page-header-row">
+                <div class="col s12 m12 l12 ">
+                    <h4 class=" page-h center-align">Category Management</h4>
                 </div>
             </div>
 
-            <div class="col s12 m6 l6 xl6">
-                <!-- Add a Topic Function -->
-                <div class="card blue-grey darken-1">
-                    <div class="card-content">
-                        <!-- Modal Trigger -->
-                        <a class="btn-floating btn-large waves-effect waves-light modal-trigger right"
-                        href="#category-modal"><i class="material-icons">question_mark</i></a>
+            <div class="row">
+                <div class="col s12 m12 l6 xl6">
+                    
+                    <!-- Add a Category Function -->
+                    <div class="card category-card">
+                        <div class="card-content">
+                            <!-- Modal Trigger -->
+                            <a class="btn-floating btn waves-effect waves-light modal-trigger right"
+                            href="#category-modal"><i class="material-icons">question_mark</i></a>
 
-                        <!-- Modal Structure -->
-                        <div id="topic-modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Choosing a Topic</h4>
-                                <p>A "Category" can be anything from an Event, an Application or a piece of Software, that the user has choosen to link to!</p>
+                            <!-- Modal Structure -->
+                            <div id="category-modal" class="modal">
+                                <div class="modal-content">
+                                    <h4>Choosing a Category</h4>
+                                    <p>A "Category" can be anything from an Event, an Application or a piece of Software, that the user can link to!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                            </div>
+                            <h4 class="card-title">Add a New Category</h4>
+                            <p>Here you can add to the available Categories.</p>
+                            <a href="{{ url_for('add_category') }}">Add Categories</a>
                         </div>
-                        <h4 class="card-title">Add a New Topic</h4>
-                        <p>Here you can manage the available Topics.</p>
-                        <a href="{{ url_for('add_topic') }}">This is a link</a>
+                    </div>
+                </div>
+                <div class="col s12 m12 l6 xl6">
+                    <div class="card category-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Manage Existing Categories</h4>
+                            <p>Here you can edit or delete the currently avaialble Categories.</p>
+                            <a href="{{ url_for('get_categories') }}">Manage Categories</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Edit Category and Topic Cards -->
     <div class="container">
-        <div class="row">
-            <div class="col s12 m6 l6 xl6">
-                
-                <!-- Add a Category Function -->
-                <div class="card blue-grey darken-1">
-                    <div class="card-content">
-                        <h4 class="card-title">Edit Category</h4>
-                        <p>Here you can manage the available Categories.</p>
-                        <a href="">This is a link</a>
-                    </div>
+        <div class="card-panel">
+            <div class="row page-header-row">
+                <div class="col s12 m12 l12 ">
+                    <h4 class=" page-h center-align">Topic Management</h4>
                 </div>
             </div>
 
-            <div class="col s12 m6 l6 xl6">
-                <!-- Add a Topic Function -->
-                <div class="card blue-grey darken-1">
-                    <div class="card-content">
-                        <!-- Modal Trigger -->
-                        <a class="btn-floating btn-large waves-effect waves-light modal-trigger right"
-                        href="#category-modal"><i class="material-icons">question_mark</i></a>
+            <div class="row">
+                <div class="col s12 m12 l6 xl6">
+                    <!-- Add a Topic Function -->
+                    <div class="card topic-card">
+                        <div class="card-content">
+                            <!-- Modal Trigger -->
+                            <a class="btn-floating btn waves-effect waves-light modal-trigger right"
+                            href="#topic-modal"><i class="material-icons">question_mark</i></a>
 
-                        <!-- Modal Structure -->
-                        <div id="topic-modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Choosing a Topic</h4>
-                                <p>A "Category" can be anything from an Event, an Application or a piece of Software, that the user has choosen to link to!</p>
+                            <!-- Modal Structure -->
+                            <div id="topic-modal" class="modal">
+                                <div class="modal-content">
+                                    <h4>Choosing a Topic</h4>
+                                    <p>A "Topic" can be anything from Development, UI, UX or Design!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                            </div>
+                            <h4 class="card-title">Add a New Topic</h4>
+                            <p>Here you can add to the available Topics.</p>
+                            <a href="{{ url_for('add_topic') }}">Add Topics</a>
                         </div>
-                        <h4 class="card-title">Add a New Topic</h4>
-                        <p>Here you can manage the available Topics.</p>
-                        <a href="">This is a link</a>
+                    </div>
+                </div>
+                <div class="col s12 m12 l6 xl6">
+                    <div class="card topic-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Manage Topics</h4>
+                            <p>Here you can edit or delete the currently available Topics.</p>
+                            <a href="{{ url_for('get_topics') }}">Edit Topics</a>
+                        </div>
                     </div>
                 </div>
             </div>
