@@ -174,12 +174,17 @@ def delete_resource(resource_id):
     return redirect(url_for("get_resources"))
 
 
-# ---------- Admin Functionality ---------- #
+# --------------------------- #
+# Administrator Functionality #
+# --------------------------- #
+
+# ---------- Link to Admin Page ---------- #
 @app.route("/admin_dashboard")
 def admin_dashboard():
     return render_template("admin_dashboard.html")
 
 
+# ---------- Add New Category ----------#
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
@@ -193,6 +198,14 @@ def add_category():
     return render_template("add_category.html")
 
 
+# ---------- Edit Category ---------- #
+@app.route("/edit_category/<category_id>", methods=["POST", "GET"])
+def edit_category(category_id):
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("edit_category.html", category=category)
+
+
+# ---------- Add New Topic ---------- #
 @app.route("/add_topic")
 def add_topic():
     if request.method == "POST":
@@ -204,6 +217,10 @@ def add_topic():
         return redirect(url_for("admin_dashboard"))
 
     return render_template("add_topic.html")
+
+
+# ---------- Edit Topic ---------- #
+
 
 
 # ---------- Profile Functionality ---------- #
@@ -220,14 +237,21 @@ def profile(username):
 
 
 @app.route("/")
-@app.route("/index")
+@app.route("/index/")
 def index():
     return render_template("index.html")
 
 
-@app.route("/get_resources")
+@app.route("/get_resources/")
 def get_resources():
     resources = list(mongo.db.resources.find())
+    return render_template("resources.html", resources=resources)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    resources = list(mongo.db.resources.find({"$text": {"$search": query}}))
     return render_template("resources.html", resources=resources)
 
 

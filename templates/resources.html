@@ -7,13 +7,41 @@
         </div>
     </div>
 
+    <!-- Search Form And Add Resource Button -->
+    <div class="container center">
+        <div class="card">
+            <div class="row valign-wrapper">
+                <form action="{{ url_for('search') }}" method="post" class="col s12">
+                    <div class="row search-row">
+                        <!-- Search Input-->
+                        <div class="input-field search-input-field col s12 m8 left-align">
+                            <i class="material-icons prefix ">search</i>
+                            <input type="search" name="query" id="query" minlength="2" required>
+                            <label class="form-label search-label" for="query">Search Resources</label>
+                            <span class="helper-text">Search for resources by description</span>
+                        </div>
+                        <!-- Buttons-->
+                        <div class="col s12 m4 l4">
+                            <a href="{{ url_for('get_resources') }}" class="btn-small waves-effect waves-light cancel-btn">Reset
+                                <i class="material-icons right">cancel_presentation</i>
+                            </a>
+                            <button class="btn btn-small waves-effect waves-light edit-btn" type="submit">Search
+                                <i class="material-icons right">edit_note</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Resource functionality -->
     <div class="row">
-        <div class="col s12 center">
+        <div class="col s12 m12 center">
             <a class="btn btn-large" href="{{ url_for('add_resource')}}">Add New Resource</a>
         </div>       
     </div>
     
-
     {% for resource in resources %}
         <div class="row">           
             <div class="col s12 m12 l12 xl12">                                      
