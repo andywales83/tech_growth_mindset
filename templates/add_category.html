@@ -2,7 +2,6 @@
 {% block content %}
 
 <div class="container">
-
     <!-- Page Header -->
     <div class="row">
         <div class="col s12 m12 l12 center">
@@ -11,10 +10,9 @@
     </div>
 
     <!-- Add Category Form -->
-    <div class="row">
-        <div class="card">
-            
-            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_category') }}">
+    <div class="row">                    
+        <form class="col s12 m12 l12" method="POST" action="{{ url_for('add_category') }}">
+            <div class="card">
                 <!-- Add Category Name -->
                 <div class="row">
                     <div class="input-field col s12">
@@ -40,11 +38,9 @@
 
                     </div>
                 </div>
-            </form>
-            
-        </div>
-    </div>
-
+            </div>
+        </form>
+    </div>    
 </div>
 
 

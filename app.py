@@ -213,7 +213,7 @@ def edit_category(category_id):
 
 
 # ---------- Add New Topic ---------- #
-@app.route("/add_topic")
+@app.route("/add_topic", methods=["GET", "POST"])
 def add_topic():
     if request.method == "POST":
         topic = {
