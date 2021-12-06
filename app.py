@@ -238,10 +238,26 @@ def add_topic():
     return render_template("add_topic.html")
 
 
+# ---------- Get Topics From DB ----------#
 @app.route("/get_topics")
 def get_topics():
     topics = list(mongo.db.topics.find().sort("topic_name", 1))
     return render_template("topics.html", topics=topics)
+
+
+# ---------- Edit Topic ---------- #
+@app.route("/edit_topic/<topic_id>", methods=["POST", "GET"])
+def edit_topic(topic_id):
+    if request.method == "POST":
+        submit = {
+            "topic_name": request.form.get("topic_name")
+        }
+        mongo.db.topics.update({"_id": ObjectId(topic_id)}, submit)
+        flash("The topic was updated")
+        return redirect(url_for("get_categories"))
+
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+    return render_template("edit_topic.html", topic=topic)
 
 
 # ---------- Profile Functionality ---------- #

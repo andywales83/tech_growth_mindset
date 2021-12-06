@@ -5,21 +5,21 @@
     <!-- Page Header -->
     <div class="row">
         <div class="col s12 m12 l12 center">
-            <h3 class="card-title">Edit Categoies</h3>
+            <h3 class="card-title">Edit Topics</h3>
         </div>
     </div>
 
     <!-- Add Category Form -->
     <div class="row">                    
-        <form class="col s12 m12 l12" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+        <form class="col s12 m12 l12" method="POST" action="{{ url_for('edit_topic', topic_id=topic._id) }}">
             <div class="card">
                 <!-- Add Category Name -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">folder_open</i>
-                        <input id="category_name" name="category_name" type="text" class="validate" required
-                            value="{{ category.category_name }}">
-                        <label for="category_name">Edit Category</label>
+                        <input id="topic_name" name="topic_name" type="text" class="validate" required
+                            value="{{ topic.topic_name }}">
+                        <label for="topic_name">Edit Topic</label>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                         </button>
 
                         <!-- Cancel Button -->
-                        <a href="{{ url_for('get_categories') }}" class="btn waves-effect waves-light cancel-btn">Cancel
+                        <a href="{{ url_for('get_topics') }}" class="btn waves-effect waves-light cancel-btn">Cancel
                             <i class="material-icons right">cancel_presentation</i>
                         </a>
 
