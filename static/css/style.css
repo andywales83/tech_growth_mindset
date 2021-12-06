@@ -199,3 +199,10 @@ footer ul {
 .category-card, .topic-card {
     background-color: var(--mid-blue);
 }
+
+/* ---------- Error Handling ---------- */
+
+/*--- 404 / 500 Handling --- */
+.error-container {
+    margin: 50px auto;
+}

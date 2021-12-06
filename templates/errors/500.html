@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title%}500{% endblock %}
+
+{% block content %}
+
+	<div class="container error-container center-align">
+		<div class="row center">
+			<div class="col sm12 m12 l12 xl12">
+				<h3>Oops! It looks like there's a problem!</h3>
+				<h1><span>5</span><span>0</span><span>0</span></h1>
+			
+				<h2>We are sorry, but there seems to be a problem with the server!</h2>
+				<a class="btn" href="{{ url_for('get_resources') }}">Take me somewhere safe!</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

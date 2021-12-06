@@ -21,7 +21,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# ----- Create Admin Function ----- #
+# ---------- Create Admin Function ---------- #
 def admin():
     """
     Define admin user.
@@ -33,7 +33,7 @@ def admin():
 # Registration and Log In / Log Out Functionality #
 # ----------------------------------------------- #
 
-# --- Sign Up / Register Functionality ---#
+# ---------- Sign Up / Register Functionality ----------#
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
@@ -69,7 +69,7 @@ def register():
     return render_template("register.html")
 
 
-# ----- Log In Functionality ----- #
+# ---------- Log In Functionality ---------- #
 @app.route("/login", methods=["POST", "GET"])
 def login():
     """
@@ -106,7 +106,7 @@ def login():
     return render_template("login.html")
 
 
-# ----- Log Out Functionality ----- #
+# ---------- Log Out Functionality ---------- #
 @app.route("/logout")
 def logout():
     # remove user session cookies
@@ -119,7 +119,7 @@ def logout():
 # Resource CRUD Functionality #
 # --------------------------- #
 
-# ----- Create a resource functionality ----- #
+# ---------- Create Resource Functionality ---------- #
 @app.route("/add_resource", methods=["GET", "POST"])
 def add_resource():
     if request.method == "POST":
@@ -142,7 +142,14 @@ def add_resource():
                            topics=topics)
 
 
-# ----- Edit Resource Functionality ----- #
+# ---------- Read Resource Functionality ---------- #
+@app.route("/get_resources/")
+def get_resources():
+    resources = list(mongo.db.resources.find())
+    return render_template("resources.html", resources=resources)
+
+
+# ---------- Edit Resource Functionality ---------- #
 @app.route("/edit_resource/<resource_id>", methods=["POST", "GET"])
 def edit_resource(resource_id):
     if request.method == "POST":
@@ -188,16 +195,22 @@ def admin_dashboard():
         return redirect(url_for("login"))
 
 
-# ---------- Add New Category ----------#
+# ---------- Categories Functionality ---------- #
+
+# ---------- Add New Category ---------- #
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.insert_one(category)
-        flash("Your new category was added!")
-        return redirect(url_for("admin_dashboard"))
+    if admin():
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.insert_one(category)
+            flash("Your new category was added!")
+            return redirect(url_for("admin_dashboard"))
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
 
     return render_template("add_category.html")
 
@@ -205,32 +218,47 @@ def add_category():
 # ---------- Get Categories From DB ---------- #
 @app.route("/get_categories")
 def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    if admin():
+        categories = list(mongo.db.categories.find().sort("category_name", 1))
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
+
     return render_template("categories.html", categories=categories)
 
 
 # ---------- Edit Category ---------- #
 @app.route("/edit_category/<category_id>", methods=["POST", "GET"])
 def edit_category(category_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("The category was updated")
-        return redirect(url_for("get_categories"))
+    if admin():
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            flash("The category was updated")
+            return redirect(url_for("get_categories"))
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
     return render_template("edit_category.html", category=category)
 
 
 # ---------- Delete Category ---------- #
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("The category was deleted")
+    if admin():
+        mongo.db.categories.remove({"_id": ObjectId(category_id)})
+        flash("The category was deleted")
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
     return redirect(url_for("get_categories"))
 
+
+# ---------- Topics Functionality ---------- #
 
 # ---------- Add New Topic ---------- #
 @app.route("/add_topic", methods=["GET", "POST"])
@@ -289,16 +317,24 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# ---------- Error Handling Functionality ---------- #
+
+# --- 404 Handler --- #
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("errors/404.html"), 404
+
+
+# --- 500 Handler --- #
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template("errors/500.html"), 500
+
+
 @app.route("/")
 @app.route("/index/")
 def index():
     return render_template("index.html")
-
-
-@app.route("/get_resources/")
-def get_resources():
-    resources = list(mongo.db.resources.find())
-    return render_template("resources.html", resources=resources)
 
 
 @app.route("/search", methods=["GET", "POST"])
