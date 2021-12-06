@@ -188,6 +188,7 @@ footer ul {
 /* ----------- Resource Card Styling ---------- */
 .card, .card-panel {
     background-color: var(--light-blue);
+    padding: 10px;
 }
 
 .card label {

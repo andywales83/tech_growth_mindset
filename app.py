@@ -181,7 +181,11 @@ def delete_resource(resource_id):
 # ---------- Link to Admin Page ---------- #
 @app.route("/admin_dashboard")
 def admin_dashboard():
-    return render_template("admin_dashboard.html")
+    if admin():
+        return render_template("admin_dashboard.html")
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
 
 
 # ---------- Add New Category ----------#
@@ -208,6 +212,14 @@ def get_categories():
 # ---------- Edit Category ---------- #
 @app.route("/edit_category/<category_id>", methods=["POST", "GET"])
 def edit_category(category_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+        flash("The category was updated")
+        return redirect(url_for("get_categories"))
+
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
 

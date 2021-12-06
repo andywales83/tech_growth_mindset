@@ -7,21 +7,21 @@
         </div>
     </div>
 
-    <!-- Search Form And Add Resource Button -->
+    <!-- Search Form -->
     <div class="container center">
         <div class="card">
-            <div class="row valign-wrapper">
-                <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row search-form valign-wrapper">
+                <form action="{{ url_for('search') }}" method="post" class="col s12 m12 l12 xl12">
                     <div class="row search-row">
                         <!-- Search Input-->
-                        <div class="input-field search-input-field col s12 m8 left-align">
+                        <div class="input-field search-input-field col s12 m8 l8 xl8 left-align">
                             <i class="material-icons prefix ">search</i>
                             <input type="search" name="query" id="query" minlength="2" required>
                             <label class="form-label search-label" for="query">Search Resources</label>
                             <span class="helper-text">Search for resources by description</span>
                         </div>
                         <!-- Buttons-->
-                        <div class="col s12 m4 l4">
+                        <div class="col s12 m4 l4 xl4">
                             <a href="{{ url_for('get_resources') }}" class="btn-small waves-effect waves-light cancel-btn">Reset
                                 <i class="material-icons right">cancel_presentation</i>
                             </a>
