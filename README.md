@@ -55,11 +55,28 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 
 ### **User Stories**
 
-#### New Visitor
+#### *New Visitor*
+1. As a first time visitor, I want the main purpose of the site to be immediately clear.
+2. As a first time visitor, I want the look of the site to be visually appealing.
+3. As a first time visitor, I want the layout of the site to be well structured and easy to navigate.
+4. As a first time visitor, I want to have an idea of the content that the site offers, before deciding to register.
+5. As a first time visitor, I want to see ways of communicating with the site's creators, via social media or a contact page.
 
-#### Registered User
+#### *Registered User*
+1. As a registered user, I want to be able to login with a set of registered credentials.
+2. As a registered user, I want to be able to change my user credentials.
+3. As a registered user, I want to be able to see all resources posted by other members.
+4. As a registered user, I want to be able to edit or delete posts that I have created myself.
+5. As a registered user, I want to be able to see a profile page where I can review my saved resource posts.
+6. As a registered user, I want to be able to quickly serach for relevant resources.
+7. As a registered user, I want to be able to delete my account in full, if i no longer wish to remain a member.
 
-#### Site Administrator
+#### *Site Administrator*
+1. As a site Administrator, I would want to be able to control the main functionality of the site, including adding new categories and topics.
+2. As a site Administrator, I would want to be able to edit or delete categories and topics.
+3. As a site Administrator, I would want to be able to control the resources added and select weekly featured resources.
+4. As a site Administrator, I would want to be able to view all resource posts added by users and delete where necessary, keeping the site up-to date.
+5. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
 
 ---
 
