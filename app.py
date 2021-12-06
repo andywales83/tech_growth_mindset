@@ -224,6 +224,14 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+# ---------- Delete Category ---------- #
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("The category was deleted")
+    return redirect(url_for("get_categories"))
+
+
 # ---------- Add New Topic ---------- #
 @app.route("/add_topic", methods=["GET", "POST"])
 def add_topic():
