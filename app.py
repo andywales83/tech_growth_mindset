@@ -268,6 +268,14 @@ def edit_topic(topic_id):
     return render_template("edit_topic.html", topic=topic)
 
 
+# ---------- Delete Topic ---------- #
+@app.route("/delete_topic/<topic_id>")
+def delete_topic(topic_id):
+    mongo.db.topics.remove({"_id": ObjectId(topic_id)})
+    flash("The topic was deleted")
+    return redirect(url_for("get_topics"))
+
+
 # ---------- Profile Functionality ---------- #
 @app.route("/profile/<username>", methods=["POST", "GET"])
 def profile(username):
