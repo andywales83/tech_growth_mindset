@@ -68,7 +68,7 @@
 
                         <p><em>Added by: {{ resource.created_by }}</em></p>
 
-                        {% if session.user|lower == resource.created_by|lower %}
+                        {% if session.user|lower == resource.created_by|lower or session.user|lower == "admin"|lower %}
                         <div class="row">
                             <div class="col s12 l6 center-align">
                                 <a href="{{ url_for('edit_resource', resource_id=resource._id) }}" 
