@@ -15,8 +15,12 @@
                     <span class="card-title">{{ topic.topic_name }}</span>
                 </div>
                 <div class="card-action">
-                    <a class="btn" href="{{ url_for('edit_topic', topic_id=topic._id) }}">Edit</a>
-                    <a class="btn" href="{{ url_for('delete_topic', topic_id=topic._id) }}">Delete</a>
+                    <a class="btn edit-btn" href="{{ url_for('edit_topic', topic_id=topic._id) }}">Edit
+                        <i class="material-icons right">edit_note</i>
+                    </a>
+                    <a class="btn delete-btn" href="{{ url_for('delete_topic', topic_id=topic._id) }}">Delete
+                        <i class="material-icons right">cancel_presentation</i>
+                    </a>
                 </div>
             </div>
         </div>

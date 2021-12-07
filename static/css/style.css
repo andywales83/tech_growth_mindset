@@ -106,67 +106,36 @@ footer ul {
    
 /* ---------- Button Stylings ---------- */
 .btn {
-    background-color: var(--orange);
+    background-color: transparent;
+    padding: 5px;
 }
 
 .btn-large {
-    background-color: none;
+    background-color: transparent;
+    font-size: 20px;
 }
 
-.btn:hover {
-    background-color: var(--orange-accent);
-}
-
-.btn:focus {
-    background-color: var(--orange-accent);
-}
- 
-.btn-small {
-    margin: auto 10px;
-}
-
-.btn-small-edit{
+.edit-btn, 
+.submit-btn, 
+.add-btn {
     background-color: var(--orange);
 }
 
-.btn-small-edit:hover {
+.edit-btn:hover, 
+.submit-btn:hover, 
+.add-btn:hover {
     background-color: var(--orange-accent);
-}
+} 
 
-.btn-small-done{
-    background-color: var(--mid-blue);
-}
-
-.btn-small-done:hover {
-    background-color: var(--mid-blue-accent);
-}
-
-.edit-btn {
-    margin-right: 20px;
-}
-
-.cancel-btn {
-    background-color: var(--red);
-    margin-left: 20px;
-}
-
-.cancel-btn:hover {
-    background-color: var(--red-accent);
-}
-
-.edit-res-btn {
-    background-color: var(--orange);
-}
-
-.edit-res-btn:hover {
-    background-color: var(--orange-accent);
-}
-
-.delete-res-btn {
+.delete-btn, 
+.cancel-btn, 
+.reset-btn {
     background-color: var(--red);
 }
 
-.delete-res-btn:hover {
+.delete-btn:hover, 
+.cancel-btn:hover, 
+.reset-btn:hover {
     background-color: var(--red-accent);
 }
 
@@ -177,6 +146,7 @@ footer ul {
 .btn-floating:hover {
     background-color: var(--red-accent);
 }
+
 
 /* ---------- Flash Message Styling ---------- */
 
@@ -205,4 +175,8 @@ footer ul {
 /*--- 404 / 500 Handling --- */
 .error-container {
     margin: 50px auto;
+}
+
+.register-icon {
+    margin-right: 10px;
 }

@@ -40,7 +40,7 @@
                             </div>
                             <h4 class="card-title">Add a New Category</h4>
                             <p>Here you can add to the available Categories.</p>
-                            <a href="{{ url_for('add_category') }}">Add Categories</a>
+                            <a class="btn add-btn" href="{{ url_for('add_category') }}">Add Categories</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <div class="card-content">
                             <h4 class="card-title">Manage Existing Categories</h4>
                             <p>Here you can edit or delete the currently avaialble Categories.</p>
-                            <a href="{{ url_for('get_categories') }}">Manage Categories</a>
+                            <a class="btn edit-btn" href="{{ url_for('get_categories') }}">Manage Categories</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                             </div>
                             <h4 class="card-title">Add a New Topic</h4>
                             <p>Here you can add to the available Topics.</p>
-                            <a href="{{ url_for('add_topic') }}">Add Topics</a>
+                            <a class="btn add-btn" href="{{ url_for('add_topic') }}">Add Topics</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         <div class="card-content">
                             <h4 class="card-title">Manage Topics</h4>
                             <p>Here you can edit or delete the currently available Topics.</p>
-                            <a href="{{ url_for('get_topics') }}">Edit Topics</a>
+                            <a class="btn edit-btn" href="{{ url_for('get_topics') }}">Edit Topics</a>
                         </div>
                     </div>
                 </div>

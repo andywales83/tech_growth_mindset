@@ -82,6 +82,24 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 
 ## **UI Design**
 
+### Fonts
+- The project uses Google Fonts for the delivery of the main font styling.
+- The main font used is the Rubik font, due to its clean and modern style.
+- The back-up font used for the project is Sans-Serif.
+
+### Colour Scheme
+- The colour scheme was chosen to make the site look visually appealing, using a mix of bold and modern colours.
+- The text for the site uses a generic dark grey colour.
+- The background for the site uses the colour of "Honeydew".
+- The resource cards use the "Powdered Blue" colour.
+- The Navbar and Footer both use the "Celadon Blue" colour.
+
+#### Colour Palette
+
+
+### Icons
+- Many of the icons used, were those provided by the Materialize Icons library. Where the Materialize library did not offer the required icon/s, Font Awesome was used as a substitute. 
+
 ---
 
 ## **Wireframes**

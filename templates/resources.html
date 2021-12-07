@@ -22,10 +22,10 @@
                         </div>
                         <!-- Buttons-->
                         <div class="col s12 m4 l4 xl4">
-                            <a href="{{ url_for('get_resources') }}" class="btn-small waves-effect waves-light cancel-btn">Reset
+                            <a href="{{ url_for('get_resources') }}" class="btn waves-effect waves-light cancel-btn">Reset
                                 <i class="material-icons right">cancel_presentation</i>
                             </a>
-                            <button class="btn btn-small waves-effect waves-light edit-btn" type="submit">Search
+                            <button class="btn waves-effect waves-light edit-btn" type="submit">Search
                                 <i class="material-icons right">edit_note</i>
                             </button>
                         </div>
@@ -38,7 +38,7 @@
     <!-- Add New Resource functionality -->
     <div class="row">
         <div class="col s12 m12 center">
-            <a class="btn btn-large" href="{{ url_for('add_resource')}}">Add New Resource</a>
+            <a class="btn-large add-btn" href="{{ url_for('add_resource')}}">Add New Resource</a>
         </div>       
     </div>
     
@@ -72,12 +72,12 @@
                         <div class="row">
                             <div class="col s12 l6 center-align">
                                 <a href="{{ url_for('edit_resource', resource_id=resource._id) }}" 
-                                    class="waves-effect waves-light btn-small edit-res-btn">
+                                    class="waves-effect waves-light btn edit-btn">
                                         <i class="material-icons left">edit_note</i>Edit Resource</a>
                             </div>
                             <div class="col s12 l6 center-align">
                                 <a href="{{ url_for('delete_resource', resource_id=resource._id) }}" 
-                                    class="waves-effect waves-light btn-small delete-res-btn">
+                                    class="waves-effect waves-light btn delete-btn">
                                         <i class="material-icons left">cancel_presentation</i>Delete Resource</a>
                             </div>
                         </div>
