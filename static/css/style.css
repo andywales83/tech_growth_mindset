@@ -11,7 +11,8 @@
     --orange-accent: #f89d0b;
     --red: #C62828;
     --red-accent: #9c2020;
-    --black: #000; 
+    --black: #000;
+    --grey: #999999; 
 }
 
 /* ---------- General Styling ---------- */
@@ -26,10 +27,6 @@ body {
 
 main {
     flex: 1 0 auto;
-}
-
-.card-panel {
-    background-color: var(--light-blue);
 }
 
 /* ---------- Navbar Styling ----------  */
@@ -160,7 +157,11 @@ footer ul {
 }
 
 /* ----------- Resource Card Styling ---------- */
-.card, .card-panel {
+.card-panel {
+    background-color: var(--grey);
+}
+
+.card {
     background-color: var(--light-blue);
     padding: 10px;
 }
@@ -170,9 +171,8 @@ footer ul {
 }
 
 /* ---------- Admin Page Styling ---------- */
-.category-card, .topic-card {
-    background-color: var(--mid-blue);
-}
+
+
 
 /* ---------- Error Handling ---------- */
 

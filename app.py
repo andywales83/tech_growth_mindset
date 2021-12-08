@@ -340,7 +340,7 @@ def change_password(username):
         return redirect(url_for("profile", username=session["user"]))
 
 
-# --- DELETE PROFILE FUNCTIONALITY --- #
+# --- Delete Profile Functionality --- #
 @app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
     user = mongo.db.users.find_one({'username': session["user"]})
@@ -359,7 +359,6 @@ def delete_account(user_id):
 
 
 # ---------- Error Handling Functionality ---------- #
-
 
 # --- 404 Handler --- #
 @app.errorhandler(404)
