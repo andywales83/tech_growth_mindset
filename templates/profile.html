@@ -25,7 +25,8 @@
                     </div>
                     <div class="card-action">
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn edit-btn modal-trigger" href="#change-email-modal">Edit Email</a>
+                        <a class="waves-effect waves-light btn edit-btn modal-trigger" href="#change-email-modal">Edit
+                            Email</a>
 
                         <!-- Modal Structure -->
                         <div id="change-email-modal" class="modal">
@@ -67,7 +68,8 @@
                     </div>
                     <div class="card-action">
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn edit-btn modal-trigger" href="#change-password-modal">Edit Password</a>
+                        <a class="waves-effect waves-light btn edit-btn modal-trigger"
+                            href="#change-password-modal">Edit Password</a>
 
                         <!-- Modal Structure -->
                         <div id="change-password-modal" class="modal">
@@ -109,7 +111,8 @@
                     </div>
                     <div class="card-action">
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn delete-btn modal-trigger" href="#delete-account-modal">Delete Account</a>
+                        <a class="waves-effect waves-light btn delete-btn modal-trigger"
+                            href="#delete-account-modal">Delete Account</a>
 
                         <!-- Modal Structure -->
                         <div id="delete-account-modal" class="modal">
@@ -118,13 +121,13 @@
                                 <p>Are you sure you want to delete your account? This cannot be undone!</p>
                             </div>
 
-                            <form action="{{ url_for('delete_user', user_id=username) }}" method="POST">
+                            <form action="{{ url_for('delete_account', user_id=username) }}" method="POST">
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">delete_outline</i>
-                                        <input id="email_change" name="email_change" type="text" class="validate"
-                                            required>
-                                        <label for="email_change">User Password</label>
+                                        <input id="confirm_deletion" name="confirm_deletion" minlength="5" 
+                                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate" required>
+                                        <label for="confirm_deletion">User Password</label>
                                     </div>
                                 </div>
 

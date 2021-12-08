@@ -340,19 +340,22 @@ def change_password(username):
         return redirect(url_for("profile", username=session["user"]))
 
 
-@app.route("/delete_user/<user_id>", methods=["POST", "GET"])
-def delete_user(user_id):
-    user = mongo.db.users.find_one({"username": session["user"]})
+# --- DELETE PROFILE FUNCTIONALITY --- #
+@app.route('/delete_account/<user_id>', methods=["GET", "POST"])
+def delete_account(user_id):
+    user = mongo.db.users.find_one({'username': session["user"]})
+    # Checks if password matches existing password in database
     if check_password_hash(user["password"],
                            request.form.get("confirm_deletion")):
+        flash("We can confirm that your account has been deleted.")
         session.pop("user")
         mongo.db.users.remove({"_id": ObjectId(user['_id'])})
-        flash("Your account has been successfully deleted")
+        return redirect(url_for("register"))
     else:
-        flash("You have entered an incorrect password. Please try again!")
+        flash("The password you entered was incorrect. Please try again!")
         return redirect(url_for("profile", user=user.get("username")))
- 
-    return redirect(url_for("index.html"))
+    # return to home page page
+    return redirect(url_for("register"))
 
 
 # ---------- Error Handling Functionality ---------- #
