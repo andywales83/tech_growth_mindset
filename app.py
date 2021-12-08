@@ -317,7 +317,46 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/change_email/<username>", methods=["POST", "GET"])
+def change_email(username):
+    if request.method == "POST":
+        new_email = request.form.get("email").lower()
+        mongo.db.users.update(
+            {"username": username},
+            {"$set": {"email": new_email}})
+        flash("Your email has been updated")
+        return redirect(url_for("profile", username=session["user"]))
+
+
+@app.route("/change_password/<username>", methods=["POST", "GET"])
+def change_password(username):
+    if request.method == "POST":
+        new_password = generate_password_hash(request.form.get
+                                              ("new_password"))
+        mongo.db.users.update(
+            {"username": username},
+            {"$set": {"password": new_password}})
+        flash("Your Password has been changed")
+        return redirect(url_for("profile", username=session["user"]))
+
+
+@app.route("/delete_user/<user_id>", methods=["POST", "GET"])
+def delete_user(user_id):
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if check_password_hash(user["password"],
+                           request.form.get("confirm_deletion")):
+        session.pop("user")
+        mongo.db.users.remove({"_id": ObjectId(user['_id'])})
+        flash("Your account has been successfully deleted")
+    else:
+        flash("You have entered an incorrect password. Please try again!")
+        return redirect(url_for("profile", user=user.get("username")))
+ 
+    return redirect(url_for("index.html"))
+
+
 # ---------- Error Handling Functionality ---------- #
+
 
 # --- 404 Handler --- #
 @app.errorhandler(404)
