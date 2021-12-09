@@ -1,25 +1,24 @@
 /* ---------- Root Variables ---------- */
 
 :root {
-    --main-text: #303030;
-    --ivory: #F1FAEE;
-    --light-blue: #A8DADC;
-    --mid-blue: #457B9D;
-    --mid-blue-accent: #2e698d;
-    --deep-blue: #1d3557;
-    --orange: #FFB700;
-    --orange-accent: #f89d0b;
-    --red: #C62828;
-    --red-accent: #9c2020;
-    --black: #000;
+    --rich-black: #001219;
+    --blue-sapphire: #005F73;
+    --viridian-green: #0A9396;
+    --mid-blue-green: #94D2BD;
+    --mid-blue-accent: #80bba7;
+    --cornsilk: #F1FAEE;
+    --orange: #FD850D;
+    --orange-accent: #DE7002;
+    --vermilion: #C62828;
+    --vermillion-accent: #B92113;
     --grey: #999999; 
 }
 
 /* ---------- General Styling ---------- */
 body {
     font-family: 'Rubik', sans-serif;
-    color: var(--main-text);
-    background-color: var(--ivory);
+    color: var(--rich-black);
+    background-color: var(--cornsilk);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -44,7 +43,7 @@ main {
 }
 
 .nav {
-    background-color: var(--mid-blue);
+    background-color: var(--blue-sapphire);
 }
 
 @media only screen and (max-width: 600px){
@@ -93,7 +92,7 @@ main {
 
 /* ---------- Footer Stylings ---------- */
 .page-footer {
-    background-color: var(--mid-blue);
+    background-color: var(--blue-sapphire);
 }
 
 footer ul {
@@ -131,21 +130,21 @@ footer ul {
 .delete-btn, 
 .cancel-btn, 
 .reset-btn {
-    background-color: var(--red);
+    background-color: var(--vermilion);
 }
 
 .delete-btn:hover, 
 .cancel-btn:hover, 
 .reset-btn:hover {
-    background-color: var(--red-accent);
+    background-color: var(--vermillion-accent);
 }
 
 .btn-floating {
-    background-color: var(--red);
+    background-color: var(--vermilion);
 }
 
 .btn-floating:hover {
-    background-color: var(--red-accent);
+    background-color: var(--vermillion-accent);
 }
 
 
@@ -162,12 +161,12 @@ footer ul {
 }
 
 .card {
-    background-color: var(--light-blue);
+    background-color: var(--mid-blue-green);
     padding: 10px;
 }
 
 .card label {
-    color: var(--main-text);
+    color: var(--rich-black);
 }
 
 /* ---------- Admin Page Styling ---------- */
