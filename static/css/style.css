@@ -10,7 +10,7 @@
     --orange: #FD850D;
     --orange-accent: #DE7002;
     --vermilion: #C62828;
-    --vermillion-accent: #B92113;
+    --vermillion-accent: #a71e11;
     --grey: #999999; 
 }
 
@@ -26,6 +26,16 @@ body {
 
 main {
     flex: 1 0 auto;
+}
+
+/* form input text color */
+.input-field .prefix ~ label {
+    color: var(--rich-black);
+}
+
+h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* ---------- Navbar Styling ----------  */
@@ -155,10 +165,23 @@ footer ul {
     line-height: 2;
 }
 
-/* ----------- Resource Card Styling ---------- */
-.card-panel {
+/* ----------- Resource Card/Panel Styling ---------- */
+.home-card-panel {
     background-color: var(--grey);
 }
+
+.profile-card-panel {
+    background-color: var(--grey);
+}
+
+.admin-card-panel {
+    background-color: var(--grey);
+}
+
+.register-card-panel {
+    background-color: var(--mid-blue-green);
+}
+
 
 .card {
     background-color: var(--mid-blue-green);
@@ -183,3 +206,5 @@ footer ul {
 .register-icon {
     margin-right: 10px;
 }
+
+

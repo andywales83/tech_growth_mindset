@@ -63,7 +63,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
                         <textarea name="resource_description" id="resource_description" class="materialize-textarea validate" minlength="5"
-                            maxlength="500" required></textarea>
+                            maxlength="1000" required></textarea>
                     <label for="resource_description">Description</label>
                 </div>                
             </div>
@@ -97,6 +97,9 @@
                     <button class="btn-large add-btn waves-effect waves-light" type="submit">Add Resource
                         <i class="material-icons right">add_circle_outline</i>
                     </button>
+                    <a href="{{ url_for('get_resources') }}" class="btn-large waves-effect waves-light cancel-btn">Cancel
+                        <i class="material-icons right">cancel_presentation</i>
+                    </a>
                 </div>
             </div>
         </form>        
