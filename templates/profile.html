@@ -1,158 +1,211 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row">
-    <div class="col s12 m12 l12 center">
-        <h3 class="login-header center-align">{{ username }}'s profile page.</h3>
+    <div class="row">
+        <div class="col s12 m12 l12 center">
+            <h3 class="login-header center-align">{{ username }}'s profile page.</h3>
+        </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="card-panel profile-card-panel">
+    <div class="container">
+        <div class="card-panel profile-card-panel">
+            <div class="row page-header-row">
+                <div class="col s12 m12 l12 ">
+                    <h4 class=" page-h center-align">Profile Management</h4>
+                </div>
+            </div>
 
-        <div class="row page-header-row">
-            <div class="col s12 m12 l12 ">
-                <h4 class=" page-h center-align">Profile Management</h4>
+            <!-- Update User Email Functionality -->
+            <div class="row">
+                <div class="col s12 m12 l4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Update Your Email Address</h4>
+                            <p>Amend the regiseterd email address.</p>
+                        </div>
+                        <div class="card-action">
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn edit-btn modal-trigger" href="#change-email-modal">Edit
+                                Email
+                            </a>
+
+                            <!-- Modal Structure -->
+                            <div id="change-email-modal" class="modal">
+                                <div class="modal-content">
+                                    <h4>Hello {{ username }}!</h4>
+                                    <p>You can update and edit your email address here.</p>
+                                </div>
+
+                                <form action="{{ url_for('change_email', username=session['user']) }}" method="POST">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">mail_outline</i>
+                                            <input id="email_change" name="email_change" type="text" class="validate"
+                                                required>
+                                            <label for="email_change">Edit Email</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col s6 center">
+                                            <button class="btn submit-btn" type="submit">Submit</button>
+                                        </div>
+                                        <div class="col s6 center">
+                                            <a href="{{ url_for('profile', username=session['user']) }}"
+                                                class="modal-close waves-effect waves-green btn cancel-btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Update User Password Functionality -->
+                <div class="col s12 m12 l4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Update Your Password</h4>
+                            <p>Amend the password you have regiseterd.</p>
+                        </div>
+                        <div class="card-action">
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn edit-btn modal-trigger"
+                                href="#change-password-modal">Edit Password
+                            </a>
+
+                            <!-- Modal Structure -->
+                            <div id="change-password-modal" class="modal">
+                                <div class="modal-content">
+                                    <h4>Hello {{ username }}!</h4>
+                                    <p>You can change the registered password here.</p>
+                                </div>
+
+                                <form action="{{ url_for('change_password', username=session['user']) }}" method="POST">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">lock</i>
+                                            <input id="new_password" name="new_password" type="text" class="validate"
+                                                required>
+                                            <label for="new_password">Change Password</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col s6 center">
+                                            <button class="btn submit-btn" type="submit">Submit</button>
+                                        </div>
+                                        <div class="col s6 center">
+                                            <a href="{{ url_for('profile', username=session['user']) }}"
+                                                class="modal-close waves-effect waves-green btn cancel-btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Delete User Account Functionality -->
+                <div class="col s12 m12 l4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Delete Your User Account</h4>
+                            <p>Delete the registered user account.</p>
+                        </div>
+                        <div class="card-action">
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn delete-btn modal-trigger"
+                                href="#delete-account-modal">Delete Account</a>
+
+                            <!-- Modal Structure -->
+                            <div id="delete-account-modal" class="modal">
+                                <div class="modal-content">
+                                    <h4>Delete Your User Account</h4>
+                                    <p>Are you sure you want to delete your account? This cannot be undone!</p>
+                                </div>
+
+                                <form action="{{ url_for('delete_account', user_id=username) }}" method="POST">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">delete_outline</i>
+                                            <input id="confirm_deletion" name="confirm_deletion" minlength="5"
+                                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate"
+                                                required>
+                                            <label for="confirm_deletion">User Password</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col s6 center">
+                                            <button class="btn submit-btn" type="submit">Delete</button>
+                                        </div>
+                                        <div class="col s6 center">
+                                            <a href="{{ url_for('profile', username=session['user']) }}"
+                                                class="modal-close waves-effect waves-green btn cancel-btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Update User Email Functionality -->
+    {% if resources|length > 0 %}
         <div class="row">
-            <div class="col s12 m12 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <h4>Update Your Email Address</h4>
-                        <p>Amend the regiseterd email address.</p>
-                    </div>
-                    <div class="card-action">
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn edit-btn modal-trigger" 
-                            href="#change-email-modal">Edit Email
-                        </a>
-
-                        <!-- Modal Structure -->
-                        <div id="change-email-modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Hello {{ username }}!</h4>
-                                <p>You can update and edit your email address here.</p>
-                            </div>
-
-                            <form action="{{ url_for('change_email', username=session['user']) }}" method="POST">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <i class="material-icons prefix">mail_outline</i>
-                                        <input id="email_change" name="email_change" type="text" class="validate"
-                                            required>
-                                        <label for="email_change">Edit Email</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col s6 center">
-                                        <button class="btn submit-btn" type="submit">Submit</button>
-                                    </div>
-                                    <div class="col s6 center">
-                                        <a href="{{ url_for('profile', username=session['user']) }}"
-                                            class="modal-close waves-effect waves-green btn cancel-btn">Cancel</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Update User Password Functionality -->
-            <div class="col s12 m12 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <h4>Update Your Password</h4>
-                        <p>Amend the password you have regiseterd.</p>
-                    </div>
-                    <div class="card-action">
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn edit-btn modal-trigger"
-                            href="#change-password-modal">Edit Password
-                        </a>
-
-                        <!-- Modal Structure -->
-                        <div id="change-password-modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Hello {{ username }}!</h4>
-                                <p>You can change the registered password here.</p>
-                            </div>
-
-                            <form action="{{ url_for('change_password', username=session['user']) }}" method="POST">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <i class="material-icons prefix">lock</i>
-                                        <input id="new_password" name="new_password" type="text" class="validate"
-                                            required>
-                                        <label for="new_password">Change Password</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col s6 center">
-                                        <button class="btn submit-btn" type="submit">Submit</button>
-                                    </div>
-                                    <div class="col s6 center">
-                                        <a href="{{ url_for('profile', username=session['user']) }}"
-                                            class="modal-close waves-effect waves-green btn cancel-btn">Cancel</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Delete User Account Functionality -->
-            <div class="col s12 m12 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <h4>Delete Your User Account</h4>
-                        <p>Delete the registered user account.</p>
-                    </div>
-                    <div class="card-action">
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn delete-btn modal-trigger"
-                            href="#delete-account-modal">Delete Account</a>
-
-                        <!-- Modal Structure -->
-                        <div id="delete-account-modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Delete Your User Account</h4>
-                                <p>Are you sure you want to delete your account? This cannot be undone!</p>
-                            </div>
-
-                            <form action="{{ url_for('delete_account', user_id=username) }}" method="POST">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <i class="material-icons prefix">delete_outline</i>
-                                        <input id="confirm_deletion" name="confirm_deletion" minlength="5" 
-                                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate" required>
-                                        <label for="confirm_deletion">User Password</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col s6 center">
-                                        <button class="btn submit-btn" type="submit">Delete</button>
-                                    </div>
-                                    <div class="col s6 center">
-                                        <a href="{{ url_for('profile', username=session['user']) }}"
-                                            class="modal-close waves-effect waves-green btn cancel-btn">Cancel</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="col s12 m8 offset-m2">
+                <h2 class="header profile-header center">My Reviews</h2>
             </div>
         </div>
 
-    </div>
-</div>
+        <div class="row">
+            {% for resource in resources if session.user|lower == resource.created_by|lower %}
+                <div class="col s12 m12 l6">
+                    <div class="card">
+                        <div class="card-content">
+
+                            <!-- resource title -->
+                            <div class="row">
+                                <div class="col s8 m8 l8 xl8">
+                                    <h3 class="resource-name">{{ resource.resource_name }}</h3>
+                                </div>
+                            </div>
+
+                            <!-- list for category, topic and date added -->
+                            <ul>
+                                <li class="category-name">Category: {{ resource.category_name }}</li>
+                                <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
+                                <li class="date-added">Date added: {{ resource.date_added }}</li>
+                            </ul>
+
+                            <p class="resource-description">{{ resource.resource_description }}</p>
+                            <!-- link to resource -->
+                            <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
+
+                            <p><em>Added by: {{ resource.created_by }}</em></p>
+
+                            {% if session.user|lower == resource.created_by|lower or session.user|lower == "admin"|lower %}
+                                <div class="row">
+                                    <div class="col s12 l6 center-align">
+                                        <a href="{{ url_for('edit_resource', resource_id=resource._id) }}"
+                                            class="waves-effect waves-light btn edit-btn">
+                                            <i class="material-icons left">edit_note</i>Edit Resource</a>
+                                    </div>
+                                    <div class="col s12 l6 center-align">
+                                        <a href="{{ url_for('delete_resource', resource_id=resource._id) }}"
+                                            class="waves-effect waves-light btn delete-btn">
+                                            <i class="material-icons left">cancel_presentation</i>Delete Resource</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
 {% endblock %}
