@@ -1,91 +1,106 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row resource-header center-align">
-    <div class="col s12 m12 l12">
-        <h2>Resources</h2>
-    </div>
-</div>
-
-<!-- Search Form -->
-<div class="container center">
-    <div class="card">
-        <div class="row search-form valign-wrapper">
-            <form action="{{ url_for('search') }}" method="post" class="col s12 m12 l12 xl12">
-                <div class="row search-row">
-                    <!-- Search Input-->
-                    <div class="input-field search-input-field col s12 m8 l8 xl8 left-align">
-                        <i class="material-icons prefix ">search</i>
-                        <input type="search" name="query" id="query" minlength="2" required>
-                        <label class="form-label search-label" for="query">Search Resources</label>
-                        <span class="helper-text">Search for resources by description</span>
-                    </div>
-                    <!-- Buttons-->
-                    <div class="col s12 m4 l4 xl4">
-                        <a href="{{ url_for('get_resources') }}" class="btn waves-effect waves-light cancel-btn">Reset
-                            <i class="material-icons right">cancel_presentation</i>
-                        </a>
-                        <button class="btn waves-effect waves-light edit-btn" type="submit">Search
-                            <i class="material-icons right">edit_note</i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+    <div class="row resource-header center-align">
+        <div class="col s12 m12 l12">
+            <h2>Resources</h2>
         </div>
     </div>
-</div>
 
-<!-- Add New Resource functionality -->
-<div class="row">
-    <div class="col s12 m12 center">
-        <a class="btn-large add-btn" href="{{ url_for('add_resource')}}">Add New Resource</a>
-    </div>
-</div>
-
-{% for resource in resources %}
-<div class="row">
-    <div class="col s12 m12 l12 xl12">
+    <!-- Search Form -->
+    <div class="container center">
         <div class="card">
-            <div class="card-content">
-
-                <!-- resource title -->
-                <div class="row">
-                    <div class="col s8 m8 l8 xl8">
-                        <h3 class="resource-name">{{ resource.resource_name }}</h3>
+            <div class="row search-form valign-wrapper">
+                <form action="{{ url_for('search') }}" method="post" class="col s12 m12 l12 xl12">
+                    <div class="row search-row">
+                        <!-- Search Input-->
+                        <div class="input-field search-input-field col s12 m8 l8 xl8 left-align">
+                            <i class="material-icons prefix ">search</i>
+                            <input type="search" name="query" id="query" minlength="2" required>
+                            <label class="form-label search-label" for="query">Search Resources</label>
+                            <span class="helper-text">Search for resources by description</span>
+                        </div>
+                        <!-- Buttons-->
+                        <div class="col s12 m4 l4 xl4">
+                            <a href="{{ url_for('get_resources') }}" class="btn waves-effect waves-light cancel-btn">Reset
+                                <i class="material-icons right">cancel_presentation</i>
+                            </a>
+                            <button class="btn waves-effect waves-light edit-btn" type="submit">Search
+                                <i class="material-icons right">edit_note</i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- list for category, topic and date added -->
-                <ul>
-                    <li class="category-name">Category: {{ resource.category_name }}</li>
-                    <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
-                    <li class="date-added">Date added: {{ resource.date_added }}</li>
-                </ul>
-
-                <p class="resource-description">{{ resource.resource_description }}</p>
-                <!-- link to resource -->
-                <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
-
-                <p><em>Added by: {{ resource.created_by }}</em></p>
-
-                {% if session.user|lower == resource.created_by|lower or session.user|lower == "admin"|lower %}
-                <div class="row">
-                    <div class="col s12 l6 center-align">
-                        <a href="{{ url_for('edit_resource', resource_id=resource._id) }}"
-                            class="waves-effect waves-light btn edit-btn">
-                            <i class="material-icons left">edit_note</i>Edit Resource</a>
-                    </div>
-                    <div class="col s12 l6 center-align">
-                        <a href="{{ url_for('delete_resource', resource_id=resource._id) }}"
-                            class="waves-effect waves-light btn delete-btn">
-                            <i class="material-icons left">cancel_presentation</i>Delete Resource</a>
-                    </div>
-                </div>
-                {% endif %}
+                </form>
             </div>
         </div>
     </div>
-</div>
-{% endfor %}
+
+    <!-- Add New Resource functionality -->
+    <div class="row">
+        <div class="col s12 m12 center">
+            <a class="btn-large add-btn" href="{{ url_for('add_resource')}}">Add New Resource</a>
+        </div>
+    </div>
+
+    {% for resource in resources %}
+    <div class="row">
+        <div class="col s12 m12 l12 xl12">
+            <div class="card">
+                <div class="card-content">
+
+                    <!-- resource title -->
+                    <div class="row">
+                        <div class="col s8 m8 l8 xl8">
+                            <h3 class="resource-name">{{ resource.resource_name }}</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- list for category, topic and date added -->
+                    <ul>
+                        <li class="category-name">Category: {{ resource.category_name }}</li>
+                        <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
+                        <li class="date-added">Date added: {{ resource.date_added }}</li>
+                    </ul>
+
+                    <p class="resource-description">{{ resource.resource_description }}</p>
+                    <!-- link to resource -->
+                    <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
+
+                    <p><em>Added by: {{ resource.created_by }}</em></p>
+
+                    {% if session.user|lower == "admin"|lower %}
+                        <!-- Switch -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div class="switch">
+                                    <label for="weekly_featured">
+                                    Weekly Featured Resource
+                                    <input id="{{ resource._id }}" name="{{ resource._id }}" type="checkbox">
+                                    <span class="lever"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if session.user|lower == resource.created_by|lower or session.user|lower == "admin"|lower %}
+                    <div class="row">
+                        <div class="col s12 l6 center-align">
+                            <a href="{{ url_for('edit_resource', resource_id=resource._id) }}"
+                                class="waves-effect waves-light btn edit-btn">
+                                <i class="material-icons left">edit_note</i>Edit Resource</a>
+                        </div>
+                        <div class="col s12 l6 center-align">
+                            <a href="{{ url_for('delete_resource', resource_id=resource._id) }}"
+                                class="waves-effect waves-light btn delete-btn">
+                                <i class="material-icons left">cancel_presentation</i>Delete Resource</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
 {% endblock %}
