@@ -58,32 +58,45 @@
     </div>
 
     <section class="container featured-resources">
-        <div class="card-panel home-card-panel">
+        {% if resources|length > 0 %}
             <div class="row">
-                <div class="col s12 m12 l6">
-                    <div class="card">
-                        <h4>I am a weekly featured resource</h4>
-                    </div>
-                </div>
-                <div class="col s12 m12 l6">
-                    <div class="card">
-                        <h4>I am a weekly featured resource</h4>
-                    </div>
+                <div class="col s12 m8 offset-m2">
+                    <h2 class="header profile-header center">Weekly Featured Resources</h2>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col s12 m12 l6">
-                    <div class="card">
-                        <h4>I am a weekly featured resource</h4>
+                {% for resource in resources if resource.weekly_featured == True %}
+                    <div class="col s12 m12 l6">
+                        <div class="card">
+                            <div class="card-content">
+
+                                <!-- resource title -->
+                                <div class="row">
+                                    <div class="col s8 m8 l8 xl8">
+                                        <h3 class="resource-name">{{ resource.resource_name }}</h3>
+                                    </div>
+                                </div>
+
+                                <!-- list for category, topic and date added -->
+                                <ul>
+                                    <li class="category-name">Category: {{ resource.category_name }}</li>
+                                    <li class="resource-topic">Topic: {{ resource.resource_topic }}</li>
+                                    <li class="date-added">Date added: {{ resource.date_added }}</li>
+                                </ul>
+
+                                <p class="resource-description">{{ resource.resource_description }}</p>
+                                <!-- link to resource -->
+                                <a href="{{ resource.resource_link }}" target="_blank">Link to resource</a>
+
+                                <p><em>Added by: {{ resource.created_by }}</em></p>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col s12 m12 l6">
-                    <div class="card">
-                        <h4>I am a weekly featured resource</h4>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-        </div>
+        {% endif %}
     </section>
 
 {% endblock%}

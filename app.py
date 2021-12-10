@@ -378,7 +378,9 @@ def internal_server_error(e):
 @app.route("/")
 @app.route("/index/")
 def index():
-    return render_template("index.html")
+    resources = list(mongo.db.resources.find(
+        {"weekly_featured": True}))
+    return render_template("index.html", resources=resources)
 
 
 @app.route("/search", methods=["GET", "POST"])
