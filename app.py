@@ -356,7 +356,7 @@ def delete_account(user_id):
         return redirect(url_for("register"))
     else:
         flash("The password you entered was incorrect. Please try again!")
-        return redirect(url_for("profile", user=user.get("username")))
+        return redirect(url_for("profile", username=session["user"]))
     # return to home page page
     return redirect(url_for("register"))
 
