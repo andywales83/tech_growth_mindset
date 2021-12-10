@@ -130,7 +130,8 @@ def add_resource():
             "date_added": request.form.get("date_added"),
             "resource_description": request.form.get("resource_description"),
             "resource_link": request.form.get("resource_link"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "weekly_featured": request.form.get("weekly_featured")
         }
         mongo.db.resources.insert_one(form_data)
         flash("Awesome! Your resource has been added.")
@@ -160,7 +161,8 @@ def edit_resource(resource_id):
             "date_added": request.form.get("date_added"),
             "resource_description": request.form.get("resource_description"),
             "resource_link": request.form.get("resource_link"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "weekly_featured": request.form.get("weekly_featured")
         }
         mongo.db.resources.update({"_id": ObjectId(resource_id)}, edit_data)
         flash("Your resource has been updated.")
@@ -379,7 +381,7 @@ def internal_server_error(e):
 @app.route("/index/")
 def index():
     resources = list(mongo.db.resources.find(
-        {"weekly_featured": True}))
+        {"weekly_featured": "on"}))
     return render_template("index.html", resources=resources)
 
 

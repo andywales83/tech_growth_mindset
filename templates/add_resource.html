@@ -78,17 +78,18 @@
             </div>
 
             {% if session.user|lower == "admin"|lower %}
-            <div class="row card">
-                <div class="input-field col s12">
-                    <div class="switch">
-                        <label for="weekly_featured">
-                            <input type="checkbox" id="weekly_featured" name="weekly_featured">
-                            <span class="lever"></span>
+                <!-- Switch -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="switch">
+                            <label>
                             Weekly Featured Resource
-                        </label>
+                            <input id="weekly_featured" name="weekly_featured" type="checkbox">
+                            <span class="lever"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endif %}
 
             <!----- Submit Button ----->

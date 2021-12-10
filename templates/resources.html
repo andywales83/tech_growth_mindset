@@ -68,21 +68,6 @@
 
                     <p><em>Added by: {{ resource.created_by }}</em></p>
 
-                    {% if session.user|lower == "admin"|lower %}
-                        <!-- Switch -->
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <div class="switch">
-                                    <label for="weekly_featured">
-                                    Weekly Featured Resource
-                                    <input id="{{ resource._id }}" name="{{ resource._id }}" type="checkbox">
-                                    <span class="lever"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
-
                     {% if session.user|lower == resource.created_by|lower or session.user|lower == "admin"|lower %}
                     <div class="row">
                         <div class="col s12 l6 center-align">
