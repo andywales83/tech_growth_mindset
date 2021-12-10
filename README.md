@@ -32,7 +32,6 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 - Be able to save relevant content for future reference.
 - Be able to use the application on Mobile, Tablet or Desktop devices. 
 
-
 ### **Site Owners Goals**
 
 - Provide a positive experience for all users, looking to access the application.
@@ -94,7 +93,17 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 - The resource cards use the "Powdered Blue" colour.
 - The Navbar and Footer both use the "Celadon Blue" colour.
 
-#### Colour Palette
+#### **Colour Palette**
+
+ The overall colour palette was designed from a website called [Coolors](https://coolors.co/) and was selected, becasue of the broad spectrum of colour options available. However, not all colours in the palette are used. 
+![Colour Palette](/documentation/images/general-images/milestone3-colour-palette-copy.png)
+
+- #001219: The Rich Black color was used for the general font color of the site, so that it stands out against the differen backgroun colours.
+- #005F73: The Blue Sapphire colour is used for the bacground colour of the navigation bar and for the footer   
+- #94D2BD: The Middle Blue Green colour has been used as the background colour for all card based content.
+- #F3EACE: The Cornsilk colour is used as the primary background colour for the whole site.
+- #FD850D: The Orange colour has been used for the buttons that have an edit, submit or update function. The colour has been accented toa darker colour for the hover over feature.   
+- #DE2817: The Vermillion colour has been used for the cancel and delete buttons, along with the modal trigger buttons. The colour has been accented to a darker colour for the hover over feature
 
 
 ### Icons
@@ -107,6 +116,23 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 ---
 
 ## **Data Structures**
+ - [MongoDB](https://www.mongodb.com/) is the cloud based storage application, hosting storeage of the data for Tech Growth Mindset. It is a non-relational database, used as the backend functionality of the application, that allows users to create, read, update, delete and search data records on the app.
+
+ ### **Outline of the structure used.**
+
+- **Categories collection**
+    - This collection holds the category_name key. The categories relate to the type of resource that is being linked to, such as Books, Blogs, Events or Videos. An admin user can access this data and update and delete categories as necessary.
+
+- **Resources collection**
+    - This collection holds several keys for the resource page where the user can view all the resources in the database.
+    - The data keys include the resource name, category name, topic name, date added, resource description, link to the resource and created by. 
+
+- **Topics collection**
+    - This collection holds the topic_name key. The topics relate to the type of field which the resource belongs to, such as Technology or Personal and Professional Development. An admin user can access this data and update and delete categories as necessary.
+
+- **Users collection**
+    - This collection holds several keys about the user which is provided by the user on the register page and used again on the log in page.
+    - The data keys include the username, email and password. 
 
 ---
 
