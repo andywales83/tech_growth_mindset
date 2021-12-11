@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">chat</i>
-                        <input id="topic_name" name="topic_name" type="text" class="validate">
+                        <input id="topic_name" name="topic_name" type="text" class="validate" required>
                         <label for="topic_name">Add Topic</label>
                     </div>
                 </div>
@@ -29,12 +29,12 @@
                         
                         <!-- Add Button -->
                         <button class="btn waves-effect waves-light add-btn" type="submit">Add Topic
-                            <i class="material-icons right">edit_note</i>
+                            <i class="material-icons left">add_circle_outline</i>
                         </button>
 
                         <!-- Cancel Button -->
                         <a href="{{ url_for('admin_dashboard') }}" class="btn waves-effect waves-light cancel-btn">Cancel
-                            <i class="material-icons right">cancel_presentation</i>
+                            <i class="material-icons left">cancel_presentation</i>
                         </a>
 
                     </div>
