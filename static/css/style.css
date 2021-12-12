@@ -76,6 +76,7 @@ main {
 
 .btn-floating {
     background-color: var(--vermilion);
+    border-radius: 50px;
 }
 
 .btn-floating:hover {
@@ -237,6 +238,7 @@ footer ul li a i {
 
 .card-action {
     margin-top: 20px;
+    padding-left: 10px;
 }
 
 .card label {
