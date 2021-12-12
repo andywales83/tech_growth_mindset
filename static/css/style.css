@@ -82,13 +82,24 @@ main {
     background-color: var(--vermillion-accent);
 }
 
+/* --- Scroll to top button --- */
+.scrollToTop{
+    font-weight: bold;
+    text-decoration: none;
+    position:fixed;
+    bottom:75px;
+    right:40px;
+    display:none;
+}
+
+
 @media only screen and (max-width: 1000px){
     .edit-btn, 
     .submit-btn, 
     .add-btn {
     background-color: var(--orange);
     margin: 10px 0; 
-}
+    }
 }
 
 
@@ -224,12 +235,21 @@ footer ul li a i {
     padding: 10px;
 }
 
+.card-action {
+    margin-top: 20px;
+}
+
 .card label {
     color: var(--rich-black);
 }
 
 /* ---------- Admin Page Styling ---------- */
 
+/* --- Modal styling ---- */
+
+.modal {
+    padding: 15px;
+}
 
 
 /* ---------- Error Handling ---------- */
