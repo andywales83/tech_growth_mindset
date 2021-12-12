@@ -12,9 +12,8 @@ $(document).ready(function(){
     });
 
 
-    // Scroll Up Button Funtionality
+    // Scroll Up Button Funtionality //
 
-        
     //Check to see if the window is top if not then display button
     $(window).scroll(function(){
         if ($(this).scrollTop() > 400) {
@@ -32,7 +31,7 @@ $(document).ready(function(){
         
 
 
-    // dropdown validation code from Code Institute walkthrough project 
+    // Dropdown Validation Code From Code Institute Walkthrough Project //
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
