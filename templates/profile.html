@@ -90,7 +90,8 @@
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">lock</i>
-                                            <input id="new_password" name="new_password" type="text" class="validate"
+                                            <input id="new_password" name="new_password" type="text" minlength="5" 
+                                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate"
                                                 required>
                                             <label for="new_password">Change Password</label>
                                         </div>
