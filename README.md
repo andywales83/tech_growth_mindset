@@ -66,9 +66,9 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 2. As a registered user, I want to be able to change my user credentials.
 3. As a registered user, I want to be able to see all resources posted by other members.
 4. As a registered user, I want to be able to edit or delete posts that I have created myself.
-5. As a registered user, I want to be able to see a profile page where I can review my saved resource posts.
+5. As a registered user, I want to be able to see a profile page where I can review my own resource posts.
 6. As a registered user, I want to be able to quickly serach for relevant resources.
-7. As a registered user, I want to be able to delete my account in full, if i no longer wish to remain a member.
+7. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
 
 #### *Site Administrator*
 1. As a site Administrator, I would want to be able to control the main functionality of the site, including adding new categories and topics.
@@ -102,7 +102,7 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 - #005F73: The Blue Sapphire colour is used for the bacground colour of the navigation bar and for the footer   
 - #94D2BD: The Middle Blue Green colour has been used as the background colour for all card based content.
 - #F3EACE: The Cornsilk colour is used as the primary background colour for the whole site.
-- #FD850D: The Orange colour has been used for the buttons that have an edit, submit or update function. The colour has been accented toa darker colour for the hover over feature.   
+- #FD850D: The Orange colour has been used for the buttons that have an edit, submit or update function. The colour has been accented to a darker colour for the hover over feature.   
 - #DE2817: The Vermillion colour has been used for the cancel and delete buttons, along with the modal trigger buttons. The colour has been accented to a darker colour for the hover over feature
 
 
@@ -112,6 +112,10 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 ---
 
 ## **Wireframes**
+
+### **Low Fidelity Wireframes**
+
+Low fidelity wireframes were created with Balsamiq, and bring to life the basic prototyping structure of how the site may initially be designed to look. 
 
 ---
 
@@ -138,9 +142,59 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 
 ## **Existing Features**
 
+The site has been built with responsiveness in mind and has needed the look to remain consistent across multiple devices.
+
+### **Features Across All Pages**
+
+#### **Navbar**
+
+The Navbar is made up of two sections:
+    
+1. Brand-Logo - The navbar features the main logo for the website. This is clickable and returns the user to the main home page for the site.
+
+2. Navigation Menu Buttons - The navbar feature the main navigation links, that allow users to move around the site. The navigation buttons show different options, depending on the status of the user:
+    - Guest Users - will see the links to the Home, Login and Register pages.
+    - Registered Users - will see the links to the Home, Profile, Resources and Log Out pages.
+    - Admin Users - will see the links to the Home, Profile, Resources and Log Out pages, as well as a link to the Admin Dashboard page.
+
+#### **Footer**
+
+The footer is made up of three sections:
+
+1. Site Title & Description - The footer contains a brief reminder of the sites title and a description of what the site is desigend to do.
+
+2. Copyright Information - Has the built by information and copyright statement.
+
+3. Social Media Navigation - This section holds the social icons, which link to various social media sites and the GitHub repository for the site.
+
+#### **Return To Top Button**
+
+- The Return To Top button, is a floating button that is controlled by JQuery code, showing a red circular button with an up arrow, in the bottom right of the webpage, once a certain scroll distance has been reached. The button when clicked, smoothly scrolls the user back to the top of the page being displayed.
+
+
+
+### **Home Page**
+
+The Home page is split across three sections:
+
+1. Brand-Logo & Description - This section gives the user an immediate sense of what the site is for and who it is aimed at. This section also hosts a call to action button promoting registration to the site.
+
+2. Content Section - This section gives visitors a brief overview of what the may expect to be able to use the site for.
+
+3. Weekly Featured Resources Section - This section is controlled by the site's admin and advertises examples of what the resources created on the site may contain. This section is visible by all users and is again featured, in an effort to promote registration to the site. 
+
 ---
 
 ## **Future Features**
+
+The site has been launched with a minimal viable product phase in mind. This allows the site to incorporate future features, that will improve the overall offering and user experience that is gained. Future features may include elemets such as:
+
+- Additional profile functionality, with the option to add user profile images, a perosnal statement and options around marketing preferences.
+- Functionality to retrieve and update a forgotten password.
+- The ability to bookmark resources added by other users and view them in a section on the profile page.
+- Allow users to add other users as friend and add and share posts.
+- Allow an administrator user the option to toggle other site users as administrators.
+- Give site administrators full functionality of updating or deleting user accounts.
 
 ---
 
