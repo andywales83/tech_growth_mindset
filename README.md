@@ -29,7 +29,7 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 
 - Be able to post, edit or delete, own content.
 - Be able to view posted content of other site users.
-- Be able to save relevant content for future reference.
+- Be able to view own posts in the profile page.
 - Be able to use the application on Mobile, Tablet or Desktop devices. 
 
 ### **Site Owners Goals**
@@ -206,14 +206,14 @@ The Home page is split across three sections:
 - If they have created any, the user can see all of their created resources on their profile page.
 - If the user has created any resources, they will be able to see two buttons on each resource. These buttons allow editing and deleting functionality of the individual resource and are only accessible to the user that created the content and to the admin user of the site.
 
-### Resources Page
+### **Resources Page**
 - Only a logged in and registered users can view the resources page, where the created content by all users is hosted.
 - If a user has created any resources, they will be able to see two buttons on each resource. These buttons allow editing and deleting functionality of the individual resource and are only accessible to the user that created the content and to the admin user of the site.
 - There is a serach function user can search by category and reset the search box.
 - If the user clicks on the "Add a resource" button it will take them to the Add Resource Page.
 - A floating button appears on the lower right of the screen when the user starts to scroll downwards. Clicking this moves the view back up to the top of the page. This feature was added because the resources page can be quite long and the navbar is not fixed to the top of the page.
 
-### Add Resource Page
+### **Add Resource Page**
 - If the user clicks on the add resource button on the resources page then they will be taken to the Add Resource page.
 - The add resource page is again built on a simple form structire, where the user can input the basic required information.
 - The user will be required to add date to the resource in the following format:
@@ -228,7 +228,59 @@ The Home page is split across three sections:
 - If the user clicks add resource button, it will add the new resource to the database.
 - If the user clicks on the cancel button it will take them back to the resources page.
 
+### **Edit Resource Page**
+- The edit resources page features a simple form, where the user can edit only a resource added by them. 
+- If the user has clicked on the Edit resource button, then they are taken to the edit page. They will only be able to edit the resource if they created the resource.
+- The current resource information will be shown and the user can change the information and save it. This will update the database with the new information.
+- The user will be able to select from the current categories and topics, as well as all additional elements that can be updated.
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the user clicks on the cancel button it will take them back to the resources page.
 
+### **Admin Dashboard Page**
+- This page can only be viewed by the admin user.
+- From here the admin user can manage the sites categories and topics.
+- The admin user can add a new category or a new topic. 
+- The admin user can add a new Category if they click on the add categories button. This will take them to the Add New Category page.
+- The admin user can edit current Categories. If the user clicks on the manage categories button, they will be taken to a page where they can edit or delete the details of an existing category.
+- The admin user can add a new Topic if they click on the add topics button. This will take them to the Add new Topic page.
+- The admin user can edit current Topics. If the user clicks on the manage topics button, they will be taken to a page where they can edit or delete the details of an existing topic.
+
+#### **Add New Category page**
+- This page can only be viewed by the admin user.
+- If the admin user clicks on the add categories button on the dashboard, then this page will display.
+- The Add New Category page features a simple form, where the admin user can input the basic required information. 
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the admin user clicks Add Category button, it will add the new category to the database in the Categories collection.
+- If the user clicks on the cancel button it will take them back to the Manage resources admin dashboard page.
+
+#### **Edit Category page**
+- This page can only be viewed by the admin user.
+- If the admin user clicks on the manage categories button on the dashboard, then this page will display.
+- The current category information will be shown, displayed in a list of cards.
+- Each category card will have two buttons. one for editing the details of the category and one for deleting the category from the database.
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the admin user clicks the update button, it will update the category in the database for the Categories collection.
+- If the user clicks on the cancel button it will take them back to the Manage resources admin dashboard page.
+
+#### **Add New Topic page**
+- This page can only be viewed by the admin user.
+- If the admin user clicks on the add topicss button on the dashboard, then this page will display.
+- The Add New Topic page features a simple form, where the admin user can input the basic required information. 
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the admin user clicks Add Topic button, it will add the new topic to the database in the topics collection.
+- If the user clicks on the cancel button it will take them back to the Manage resources admin dashboard page.
+
+#### **Edit Topic page**
+- This page can only be viewed by the admin user.
+- If the admin user clicks on the manage topicss button on the dashboard, then this page will display.
+- The current topic information will be shown, displayed in a list of cards.
+- Each topic card will have two buttons. one for editing the details of the topic and one for deleting the topic from the database.
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the admin user clicks the update button, it will update the topic in the database for the Topics collection.
+- If the user clicks on the cancel button it will take them back to the Manage resources admin dashboard page.
+
+### **404 & 500 Page**
+- The custom 404 & 500 Pages contain a simple word layout letting the user know of the error and a button that can be clicked to take the user back to the home page.
 
 ---
 
