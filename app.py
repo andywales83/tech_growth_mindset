@@ -115,9 +115,9 @@ def logout():
     return redirect(url_for("login"))
 
 
-# --------------------------- #
-# Resource CRUD Functionality #
-# --------------------------- #
+# ------------------------------------ #
+# Resource CRUD Functionality & Search #
+# ------------------------------------ #
 
 # ---------- Create Resource Functionality ---------- #
 @app.route("/add_resource", methods=["GET", "POST"])
@@ -181,6 +181,14 @@ def delete_resource(resource_id):
     mongo.db.resources.remove({"_id": ObjectId(resource_id)})
     flash("Your resource has been deleted!")
     return redirect(url_for("get_resources"))
+
+
+# ---------- Saerch Functionality ----------- #
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    resources = list(mongo.db.resources.find({"$text": {"$search": query}}))
+    return render_template("resources.html", resources=resources)
 
 
 # --------------------------- #
@@ -385,11 +393,6 @@ def index():
     return render_template("index.html", resources=resources)
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    resources = list(mongo.db.resources.find({"$text": {"$search": query}}))
-    return render_template("resources.html", resources=resources)
 
 
 if __name__ == "__main__":

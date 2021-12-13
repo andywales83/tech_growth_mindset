@@ -167,21 +167,50 @@ The footer is made up of three sections:
 
 3. Social Media Navigation - This section holds the social icons, which link to various social media sites and the GitHub repository for the site.
 
-#### **Return To Top Button**
+#### *Return To Top Button**
 
 - The Return To Top button, is a floating button that is controlled by JQuery code, showing a red circular button with an up arrow, in the bottom right of the webpage, once a certain scroll distance has been reached. The button when clicked, smoothly scrolls the user back to the top of the page being displayed.
 
 
+### **Registration & Sign Up Page**
+
+- The Registration page again features a simple form, where the user can input a username, email address and password. The form was designed to be as simple and fuss free as possible, in order to promote a positive user experience from the start.
+- If a user navigates to the registration page but already has an account, they can navigate to the login page via the login link. This can also be accessed via the Login page link in the navbar. 
+
+### **Login Page**
+
+- The login page is built around a simple form structure, where the user can enter either their username or their email address and their password.
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the user navigates to the login page but does not have an account, they can navigate to the registration page via the registration link. This can also be accessed via the Register link in the navbar.
+
+### **Log Out** 
+- If a user is logged in to their account, they can click on the log out button, where they will be logged out of the current session and will be taken back to the Login page.
+- Should a registered user, wish to veiw the content of their profile again, they will be required to log back in to the site.
 
 ### **Home Page**
 
 The Home page is split across three sections:
 
 1. Brand-Logo & Description - This section gives the user an immediate sense of what the site is for and who it is aimed at. This section also hosts a call to action button promoting registration to the site.
-
 2. Content Section - This section gives visitors a brief overview of what the may expect to be able to use the site for.
+3. Weekly Featured Resources Section - This section is controlled by the site's admin and advertises examples of what the resources created on the site may contain. This section is visible by all users and is again featured, in an effort to promote registration to the site.
 
-3. Weekly Featured Resources Section - This section is controlled by the site's admin and advertises examples of what the resources created on the site may contain. This section is visible by all users and is again featured, in an effort to promote registration to the site. 
+### **Profile Page** 
+- When if the user registers an account, or logs in successfully, they are taken to their Profile page.
+- The page features a header at the top, which pulls through their username form the database, giving added positivity in the user experience.
+- There is a section that allows the user to update their email and password details, or delete their user account.
+    - if the user chooses to edit their email address, a modal pop-up will appear and the user can input a new email address. The modal the has two buttons. One to submit the change and one to cancel the changes and take them back right back to the profile page.
+    - if the user chooses to edit their password, a modal pop-up will appear and the user can input a new password. The modal the has two buttons. One to submit the change and one to cancel the changes and take them back right back to the profile page.
+    - if the user chooses to delete their user account, a modal pop-up will appear and the user will be required to confirm their current password. The modal the has two buttons. One to submit the change and one to cancel the changes and take them back right back to the profile page. 
+- If they have created any, the user can see all of their created resources on their profile page.
+- If the user has created any resources, they will be able to see two buttons on each resource. These buttons allow editing and deleting functionality of the individual resource and are only accessible to the user that created the content and to the admin user of the site.
+
+### Resources Page
+- Only a logged in and registered users can view the resources page, where the created content by all users is hosted.
+- If a user has created any resources, they will be able to see two buttons on each resource. These buttons allow editing and deleting functionality of the individual resource and are only accessible to the user that created the content and to the admin user of the site.
+- There is a serach function user can search by category and reset the search box.
+- If the user clicks on the "Add a resource" button it will take them to the Add Resource Page.
+- A floating button appears on the lower right of the screen when the user starts to scroll downwards. Clicking this moves the view back up to the top of the page. This feature was added because the resources page can be quite long and the navbar is not fixed to the top of the page.
 
 ---
 
@@ -192,6 +221,7 @@ The site has been launched with a minimal viable product phase in mind. This all
 - Additional profile functionality, with the option to add user profile images, a perosnal statement and options around marketing preferences.
 - Functionality to retrieve and update a forgotten password.
 - The ability to bookmark resources added by other users and view them in a section on the profile page.
+- The ability to run additional search queries on the resources, allowing for searching by Topic, Descriptions
 - Allow users to add other users as friend and add and share posts.
 - Allow an administrator user the option to toggle other site users as administrators.
 - Give site administrators full functionality of updating or deleting user accounts.
