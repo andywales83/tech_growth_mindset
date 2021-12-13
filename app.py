@@ -66,7 +66,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Congratulations! You are now signed up.")
         return redirect(url_for("profile", username=session["user"]))
-    return render_template("register.html")
+    return render_template("register.html", page_title="Register")
 
 
 # ---------- Log In Functionality ---------- #
@@ -103,7 +103,7 @@ def login():
             flash("Your Username and/or Password are incorrect")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("login.html", page_title="Login")
 
 
 # ---------- Log Out Functionality ---------- #
@@ -140,14 +140,15 @@ def add_resource():
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
     return render_template("add_resource.html", categories=categories,
-                           topics=topics)
+                           topics=topics, page_title="Add Resource")
 
 
 # ---------- Read Resource Functionality ---------- #
 @app.route("/get_resources/")
 def get_resources():
     resources = list(mongo.db.resources.find())
-    return render_template("resources.html", resources=resources)
+    return render_template("resources.html", resources=resources,
+                           page_title="Resources")
 
 
 # ---------- Edit Resource Functionality ---------- #
@@ -172,7 +173,8 @@ def edit_resource(resource_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
     return render_template("edit_resource.html", resource=resource,
-                           categories=categories, topics=topics)
+                           categories=categories, topics=topics,
+                           page_title="Edit Resource")
 
 
 # ---------- Delete Resource Functionality ---------- #
@@ -188,7 +190,8 @@ def delete_resource(resource_id):
 def search():
     query = request.form.get("query")
     resources = list(mongo.db.resources.find({"$text": {"$search": query}}))
-    return render_template("resources.html", resources=resources)
+    return render_template("resources.html", resources=resources,
+                           page_title="Resources")
 
 
 # --------------------------- #
@@ -199,7 +202,8 @@ def search():
 @app.route("/admin_dashboard")
 def admin_dashboard():
     if admin():
-        return render_template("admin_dashboard.html")
+        return render_template("admin_dashboard.html",
+                               page_title="Admin Dashboard")
     else:
         flash("You must be the Admin to view this page.")
         return redirect(url_for("login"))
@@ -222,7 +226,7 @@ def add_category():
         flash("You must be the Admin to view this page.")
         return redirect(url_for("login"))
 
-    return render_template("add_category.html")
+    return render_template("add_category.html", page_title="Add A Category")
 
 
 # ---------- Get Categories From DB ---------- #
@@ -234,7 +238,8 @@ def get_categories():
         flash("You must be the Admin to view this page.")
         return redirect(url_for("login"))
 
-    return render_template("categories.html", categories=categories)
+    return render_template("categories.html", categories=categories,
+                           page_title="Categories")
 
 
 # ---------- Edit Category ---------- #
@@ -253,7 +258,8 @@ def edit_category(category_id):
     else:
         flash("You must be the Admin to view this page.")
         return redirect(url_for("login"))
-    return render_template("edit_category.html", category=category)
+    return render_template("edit_category.html", category=category,
+                           page_title="Edit Category")
 
 
 # ---------- Delete Category ---------- #
@@ -281,14 +287,15 @@ def add_topic():
         flash("Your new topic was added!")
         return redirect(url_for("admin_dashboard"))
 
-    return render_template("add_topic.html")
+    return render_template("add_topic.html", page_title="Add A Topic")
 
 
 # ---------- Get Topics From DB ----------#
 @app.route("/get_topics")
 def get_topics():
     topics = list(mongo.db.topics.find().sort("topic_name", 1))
-    return render_template("topics.html", topics=topics)
+    return render_template("topics.html", topics=topics,
+                           page_title="Topics")
 
 
 # ---------- Edit Topic ---------- #
@@ -303,7 +310,8 @@ def edit_topic(topic_id):
         return redirect(url_for("get_categories"))
 
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
-    return render_template("edit_topic.html", topic=topic)
+    return render_template("edit_topic.html", topic=topic,
+                           page_title="Edit Topics")
 
 
 # ---------- Delete Topic ---------- #
@@ -324,8 +332,8 @@ def profile(username):
         {"created_by": session["user"]}))
 
     if session["user"]:
-        return render_template(
-            "profile.html", username=username, resources=resources)
+        return render_template("profile.html", username=username,
+                               resources=resources, page_title="Profile")
 
     return redirect(url_for("login"))
 
@@ -376,13 +384,13 @@ def delete_account(user_id):
 # --- 404 Handler --- #
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template("errors/404.html"), 404
+    return render_template("errors/404.html", page_title="404"), 404
 
 
 # --- 500 Handler --- #
 @app.errorhandler(500)
 def internal_server_error(e):
-    return render_template("errors/500.html"), 500
+    return render_template("errors/500.html", page_title="500"), 500
 
 
 @app.route("/")
@@ -390,9 +398,8 @@ def internal_server_error(e):
 def index():
     resources = list(mongo.db.resources.find(
         {"weekly_featured": "on"}))
-    return render_template("index.html", resources=resources)
-
-
+    return render_template("index.html", resources=resources,
+                           page_title="Home")
 
 
 if __name__ == "__main__":

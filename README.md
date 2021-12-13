@@ -167,7 +167,7 @@ The footer is made up of three sections:
 
 3. Social Media Navigation - This section holds the social icons, which link to various social media sites and the GitHub repository for the site.
 
-#### *Return To Top Button**
+#### **Return To Top Button**
 
 - The Return To Top button, is a floating button that is controlled by JQuery code, showing a red circular button with an up arrow, in the bottom right of the webpage, once a certain scroll distance has been reached. The button when clicked, smoothly scrolls the user back to the top of the page being displayed.
 
@@ -175,6 +175,7 @@ The footer is made up of three sections:
 ### **Registration & Sign Up Page**
 
 - The Registration page again features a simple form, where the user can input a username, email address and password. The form was designed to be as simple and fuss free as possible, in order to promote a positive user experience from the start.
+- The form uses validation or error feedback when they enter information in to the input fields.
 - If a user navigates to the registration page but already has an account, they can navigate to the login page via the login link. This can also be accessed via the Login page link in the navbar. 
 
 ### **Login Page**
@@ -211,6 +212,23 @@ The Home page is split across three sections:
 - There is a serach function user can search by category and reset the search box.
 - If the user clicks on the "Add a resource" button it will take them to the Add Resource Page.
 - A floating button appears on the lower right of the screen when the user starts to scroll downwards. Clicking this moves the view back up to the top of the page. This feature was added because the resources page can be quite long and the navbar is not fixed to the top of the page.
+
+### Add Resource Page
+- If the user clicks on the add resource button on the resources page then they will be taken to the Add Resource page.
+- The add resource page is again built on a simple form structire, where the user can input the basic required information.
+- The user will be required to add date to the resource in the following format:
+    - Resource Title
+    - Chosen Category
+    - Chosen Topic
+    - Date Added
+    - Resource Description
+    - Resource Link
+- The admin user will see a checkbox which uses Materialize's switch class, to toggle the weekly featured resources on and off.
+- The form uses validation or error feedback when they enter information in to the input fields.
+- If the user clicks add resource button, it will add the new resource to the database.
+- If the user clicks on the cancel button it will take them back to the resources page.
+
+
 
 ---
 
