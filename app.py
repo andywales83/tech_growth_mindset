@@ -154,6 +154,11 @@ def get_resources():
 # ---------- Edit Resource Functionality ---------- #
 @app.route("/edit_resource/<resource_id>", methods=["POST", "GET"])
 def edit_resource(resource_id):
+    resource = mongo.db.resources.find_one_or_404(
+        {"_id": ObjectId(resource_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+
     if request.method == "POST":
         edit_data = {
             "resource_name": request.form.get("resource_name"),
@@ -169,9 +174,6 @@ def edit_resource(resource_id):
         flash("Your resource has been updated.")
         return redirect(url_for("get_resources"))
 
-    resource = mongo.db.resources.find_one({"_id": ObjectId(resource_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    topics = mongo.db.topics.find().sort("topic_name", 1)
     return render_template("edit_resource.html", resource=resource,
                            categories=categories, topics=topics,
                            page_title="Edit Resource")
@@ -254,7 +256,8 @@ def edit_category(category_id):
             flash("The category was updated")
             return redirect(url_for("get_categories"))
 
-        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        category = mongo.db.categories.find_one_or_404(
+            {"_id": ObjectId(category_id)})
     else:
         flash("You must be the Admin to view this page.")
         return redirect(url_for("login"))
@@ -309,7 +312,7 @@ def edit_topic(topic_id):
         flash("The topic was updated")
         return redirect(url_for("get_categories"))
 
-    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+    topic = mongo.db.topics.find_one_or_404({"_id": ObjectId(topic_id)})
     return render_template("edit_topic.html", topic=topic,
                            page_title="Edit Topics")
 
