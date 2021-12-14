@@ -95,8 +95,13 @@
                             <div class="switch">
                                 <label>
                                 Weekly Featured Resource
-                                <input id="weekly_featured" name="weekly_featured" 
-                                    value="{{ resource.weekly_featured }}" type="checkbox" checked>
+                                {% if resource.weekly_featured == "on" %}
+                                    <input id="weekly_featured" name="weekly_featured" 
+                                        value="{{ resource.weekly_featured }}" type="checkbox" checked>
+                                {% else %}
+                                    <input id="weekly_featured" name="weekly_featured" 
+                                    value="{{ resource.weekly_featured }}" type="checkbox">
+                                {% endif %}
                                 <span class="lever"></span>
                                 </label>
                             </div>
