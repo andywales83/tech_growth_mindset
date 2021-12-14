@@ -317,7 +317,24 @@ The site has been launched with a minimal viable product phase in mind. This all
     - Cloud based database platform, used to hold data for applications.
 
 ### Libraries, Frameworks and Dependencies
-
+- [Materialize](https://materializecss.com/)
+    - The project uses the Materialize library to simplify the background code for the website, as well as it's overall responsiveness when in use. The majority of the icons used are from the Materlize library.
+- [Font Awesome](https://fontawesome.com/)
+    - Where the Materialize icon library did not have what looked to be a suitable icon for my needs, Fontawesome was used for access to additiona icons.
+- [Google Fonts](https://fonts.google.com/)
+    - The fonts for the project are taken from the Google Fonts library.
+- [Pymongo](https://pypi.org/project/pymongo/) and [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) 
+    - To connect Python and Flask to the MongoDB database
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) 
+    - To construct and render page templates, and create an instance of the app itself.
+- [MongoDB Atlas](https://www.mongodb.com/)
+    - A cloud-based Non-Relational backend database hosting service.
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/ )
+    - A WSGI web application library used for hashing user passwords for Python.
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+    - Templating language for Python, to simplify displaying data from the backend of this project smoothly and effectively in HTML.
+- [jQuery](https://jquery.com/)
+    - JavaScript library used to promote more simplistic JavaScript code throughout the project.
 
 ### Design Tools
 

@@ -33,6 +33,7 @@ main {
     color: var(--rich-black);
 }
 
+
 /* ---------- Button Stylings ---------- */
 .btn {
     background-color: transparent;
@@ -92,7 +93,6 @@ main {
     right:20px;
     display:none;
 }
-
 
 @media only screen and (max-width: 1000px){
     .edit-btn, 
@@ -205,13 +205,13 @@ footer ul li a i {
 }
 
 
-
 /* ---------- Flash Message Styling ---------- */
 
 /* display height for flashed messages */
 .flashes h4 {
     line-height: 2;
 }
+
 
 /* ----------- Resource Card/Panel Styling ---------- */
 .home-card-panel {
@@ -230,7 +230,6 @@ footer ul li a i {
     background-color: var(--mid-blue-green);
 }
 
-
 .card {
     background-color: var(--mid-blue-green);
     padding: 10px;
@@ -244,6 +243,7 @@ footer ul li a i {
 .card label {
     color: var(--rich-black);
 }
+
 
 /* ---------- Admin Page Styling ---------- */
 
@@ -273,6 +273,7 @@ footer ul li a i {
         margin-right: 10px;
     }
 }
+
 
 /* ---------- Error Handling ---------- */
 
