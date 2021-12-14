@@ -253,6 +253,26 @@ footer ul li a i {
     padding: 15px;
 }
 
+@media only screen and (max-width: 410px){
+    /* add and manage categories buttons  */
+    .add-c-btn,
+    .manage-c-btn,
+    /* add and manage topics buttons */
+    .add-t-btn,
+    .manage-t-btn {
+        font-size: 7px;
+    }
+
+    /* add and manage categories icons  */
+    div a .add-c-icon,
+    div a .manage-c-icon,
+    /* add and manage topics icons */
+    div a .add-t-icon,
+    div a .manage-t-icon {
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+}
 
 /* ---------- Error Handling ---------- */
 
