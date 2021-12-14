@@ -98,11 +98,17 @@ main {
     .edit-btn, 
     .submit-btn, 
     .add-btn {
-    background-color: var(--orange);
-    margin: 10px 0; 
+        background-color: var(--orange);
+        margin: 10px 0; 
     }
 }
 
+/* ---------- Flash Message Styling ---------- */
+
+/* display height for flashed messages */
+.flashes h4 {
+    line-height: 2;
+}
 
 
 /* ----- what is this styling? ----- */
@@ -133,6 +139,7 @@ h3 {
 @media only screen and (max-width: 600px){
     .nav .brand-logo{
         font-size: 1.7em;
+        margin-left: 5px;
     }
 }
 
@@ -205,14 +212,6 @@ footer ul li a i {
 }
 
 
-/* ---------- Flash Message Styling ---------- */
-
-/* display height for flashed messages */
-.flashes h4 {
-    line-height: 2;
-}
-
-
 /* ----------- Resource Card/Panel Styling ---------- */
 .home-card-panel {
     background-color: var(--grey);
@@ -271,6 +270,14 @@ footer ul li a i {
     div a .manage-t-icon {
         font-size: 1rem;
         margin-right: 10px;
+    }
+}
+
+
+/* ---------- Resources Page Styling ---------- */
+@media only screen and (max-width: 600px){
+    .search-container {
+        max-width: 95%;
     }
 }
 

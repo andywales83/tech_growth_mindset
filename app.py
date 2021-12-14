@@ -160,6 +160,9 @@ def edit_resource(resource_id):
     topics = mongo.db.topics.find().sort("topic_name", 1)
 
     if request.method == "POST":
+        weekly_featured = "on" if request.form.get(
+            "weekly_featured") else "off"
+
         edit_data = {
             "resource_name": request.form.get("resource_name"),
             "category_name": request.form.get("category_name"),
@@ -168,7 +171,7 @@ def edit_resource(resource_id):
             "resource_description": request.form.get("resource_description"),
             "resource_link": request.form.get("resource_link"),
             "created_by": session["user"],
-            "weekly_featured": request.form.get("weekly_featured")
+            "weekly_featured": weekly_featured
         }
         mongo.db.resources.update({"_id": ObjectId(resource_id)}, edit_data)
         flash("Your resource has been updated.")
