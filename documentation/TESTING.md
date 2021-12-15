@@ -31,3 +31,30 @@
     - [Footer](/documentation/images/testing-images/footer.png)
     - [Registration Page](/documentation/images/testing-images/registration-page.png)
 
+#### *Registered User*
+1. As a registered user, I want to be able to login with a set of registered credentials.
+2. As a registered user, I want to be able to logout of my account.
+3. As a registered user, I want to be able to change my user credentials.
+4. As a registered user, I want to be able to see all resources posted by other members.
+5. As a registered user, I want to be able to create a new resource to be added to the library.
+6. As a registered user, I want to be able to edit or delete posts that I have created myself.
+7. As a registered user, I want to be able to see a profile page where I can review my own resource posts.
+8. As a registered user, I want to be able to quickly serach for relevant resources.
+9. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
+
+- Once Registered, users will be taken to their profile page. From here, they will have the functionality to log back out via the Navbar or manage their user account details. Users when managing their account will have three options: 1. Update their email address. 2. Update their password. 3. Delete their user account.
+- Registered users will alsb be able to see a list of their own submitted resources on their profile page, as well as have the functionality to update or delete each individual resource that they have created.
+- Registered users will have access to a specific resources page, where all user submitted resources are listed. If the user has nno resources already created, they will be able to do so, via the Add New Resource button. The Add New Resource will take the user to a form based page, where they can input the necessary details of the resource they would like to create. This page features a serch feature that allows user to search for specific resources by category. The page also features the update and delete functionality on resources created by the specific user
+
+    - [Navbar](/documentation/images/testing-images/navbar.png)
+    - [Profile](/documentation/images/testing-images/profile-page.png)
+    - [Profile Management Section](/documentation/images/testing-images/profile-management.png)
+    - [Update Email](/documentation/images/testing-images/update-email.png)
+    - [Change Password](/documentation/images/testing-images/change-password.png)
+    - [Delete Account](/documentation/images/testing-images/delete-account.png)
+    - [User Created Resources](/documentation/images/testing-images/my-resources.png)
+    - [Edit Resource](/documentation/images/testing-images/edit-resource-page.png)
+    - [Resources Page](/documentation/images/testing-images/resources-page.png)
+    - [Add New Resource Button](/documentation/images/testing-images/add-new-resource.png)
+    - [Add Resource Page](/documentation/images/testing-images/add-resource.png)
+    - [Search Function](/documentation/images/testing-images/search-box.png) 
