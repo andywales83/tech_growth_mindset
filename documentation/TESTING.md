@@ -58,3 +58,27 @@
     - [Add New Resource Button](/documentation/images/testing-images/add-new-resource.png)
     - [Add Resource Page](/documentation/images/testing-images/add-resource.png)
     - [Search Function](/documentation/images/testing-images/search-box.png) 
+
+#### *Site Administrator*
+1. As a site Administrator, I would want to be able to control the main functionality of the site, including adding new categories and topics.
+2. As a site Administrator, I would want to be able to edit or delete categories and topics.
+3. As a site Administrator, I would want to be able to control the resources added and select weekly featured resources.
+4. As a site Administrator, I would want to be able to view all resource posts added by users and delete where necessary, keeping the site up-to date.
+5. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
+
+- Users registered as the administrator for the site will have access to all content that a reqular user would, with the addition of access to an admin dashboard.
+- From the admin dashboard, the administrator can access the management section of the site, where both the categories and topics can be managed. Management of both has been designed in exactly the same way, so that functionality remains consistent.
+- When looking to add a new category or topic, the admin user can click on a modal button, that gives suggestions of what to add for that specific feature. When clicking on the add category button, they are met with the add category page. The add topic button takes the user to a page of theeaxct same styling, where they can add a new topic.
+- When the admin user clicks on the manage categories or topics buttons, they are met with the manage categories or topics pages. Thes pages are both exactly the same in styling.
+- The admin user has also been given access to additional functionality, when on the edit resource page. The admin user can toggle on or off, the switch that selects the specific resource as part of the weekly featured resources.
+
+    - [Admin Dashboard](/documentation/images/testing-images/admin-dashboard.png)
+    - [Admin Management](/documentation/images/testing-images/admin-management.png)
+    - [Category Modal](/documentation/images/testing-images/category-modal.png)
+    - [Topic Modal](/documentation/images/testing-images/topic-modal.png)
+    - [Add Category](/documentation/images/testing-images/add-category.png)
+    - [Category Management](/documentation/images/testing-images/category-management.png)
+    - [Edit Category](/documentation/images/testing-images/edit-category.png)
+    - [Weekly Featured Switch](/documentation/images/testing-images/weekly-featured-toggle.png)
+
+
