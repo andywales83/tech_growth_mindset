@@ -2,7 +2,7 @@
 
 Tech Growth Mindset is a Web-based Application, specifically built for the Data-Centric Development modules of the Code Institute's - Full Stack Software Development Diploma. The purpose of the project, is to give users access to sharable information and resources, around Technology and Self Development, through a number of different platforms. The Application is built, following the "CRUD" principles and will allow users to Create, Read, Update and Delete content. 
 
-[View the live project on Heroku](#)
+[View the live project on Heroku](https://tech-growth-mindset.herokuapp.com/)
 
 ![Am I responsive image](#)
 
@@ -59,16 +59,18 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 2. As a first time visitor, I want the look of the site to be visually appealing.
 3. As a first time visitor, I want the layout of the site to be well structured and easy to navigate.
 4. As a first time visitor, I want to have an idea of the content that the site offers, before deciding to register.
-5. As a first time visitor, I want to see ways of communicating with the site's creators, via social media or a contact page.
+5. As a frist time visitor, I want to be able to easily find and use the registration page, if I choose to register.
+6. As a first time visitor, I want to see ways of communicating with the site's creators, via social media or a contact page.
 
 #### *Registered User*
 1. As a registered user, I want to be able to login with a set of registered credentials.
-2. As a registered user, I want to be able to change my user credentials.
-3. As a registered user, I want to be able to see all resources posted by other members.
-4. As a registered user, I want to be able to edit or delete posts that I have created myself.
-5. As a registered user, I want to be able to see a profile page where I can review my own resource posts.
-6. As a registered user, I want to be able to quickly serach for relevant resources.
-7. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
+2. As a registered user, I want to be able to logout of my account.
+3. As a registered user, I want to be able to change my user credentials.
+4. As a registered user, I want to be able to see all resources posted by other members.
+5. As a registered user, I want to be able to edit or delete posts that I have created myself.
+6. As a registered user, I want to be able to see a profile page where I can review my own resource posts.
+7. As a registered user, I want to be able to quickly serach for relevant resources.
+8. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
 
 #### *Site Administrator*
 1. As a site Administrator, I would want to be able to control the main functionality of the site, including adding new categories and topics.
@@ -363,6 +365,8 @@ The site has been launched with a minimal viable product phase in mind. This all
 ---
 
 ## **Testing**
+
+View the overall testing report for the site here: [TESTING.md](/documentation/TESTING.md)
 
 ---
 
