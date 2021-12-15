@@ -117,6 +117,25 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 
 Low fidelity wireframes were created with Balsamiq, and bring to life the basic prototyping structure of how the site may initially be designed to look. 
 
+#### *Guest User*
+
+- [Home Page](/documentation/images/wireframes/home-wireframe.png)
+- [Registration Page](/documentation/images/wireframes/register-wireframe.png)
+- [Login Page](/documentation/images/wireframes/login-wireframe.png)
+
+#### *Registered User*
+
+- [Home Page](/documentation/images/wireframes/home-wireframe.png)
+- [Profile Page](/documentation/images/wireframes/profile-wireframe.png)
+- [Resources Page](/documentation/images/wireframes/resources-wireframe.png)
+
+#### *Admin User*
+
+- [Home Page](/documentation/images/wireframes/home-wireframe.png)
+- [Profile Page](/documentation/images/wireframes/profile-wireframe.png)
+- [Resources Page](/documentation/images/wireframes/resources-wireframe.png)
+- [Admin Dashboard](/documentation/images/wireframes/admin-wireframe.png)
+
 ---
 
 ## **Data Structures**
@@ -235,6 +254,7 @@ The Home page is split across three sections:
 - The user will be able to select from the current categories and topics, as well as all additional elements that can be updated.
 - The form uses validation or error feedback when they enter information in to the input fields.
 - If the user clicks on the cancel button it will take them back to the resources page.
+- The edit resource page contains a switch style checkbox button, that when selected, triggers the resource to be part of a weekly featured section on the home page. The switch toggles the "on" and "off" value for the key of weekly_featured in the database.
 
 ### **Admin Dashboard Page**
 - This page can only be viewed by the admin user.
