@@ -44,7 +44,7 @@
                     <div class="input-field col s12">
                         <i class="material-icons prefix">chat</i>
                         <select id="resource_topic" name="resource_topic" class="validate" required>
-                            <option value="" disabled selected>Choose Topic</option>
+                            <option value="" disabled>Choose Topic</option>
                             {% for topic in topics %}
                                 {% if topic.topic_name == resource.resource_topic %}
                                     <option value="{{ topic.topic_name }}" selected>{{ topic.topic_name }}</option>

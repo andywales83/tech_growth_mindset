@@ -26,7 +26,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">folder_open</i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
+                        <option value="" disabled>Choose Category</option>
                         {% for category in categories %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
@@ -40,7 +40,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">chat</i>
                     <select id="resource_topic" name="resource_topic" class="validate" required>
-                        <option value="" disabled selected>Choose Topic</option>
+                        <option value="" disabled>Choose Topic</option>
                         {% for topic in topics %}
                             <option value="{{ topic.topic_name }}">{{ topic.topic_name }}</option>
                         {% endfor %}
