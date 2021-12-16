@@ -208,7 +208,11 @@ footer ul li a i {
 }
 
 .reviews-header {
-    margin-top: 40px;
+    margin-top: 20px;
+}
+
+.manage-profile-container {
+    margin-bottom: 30px;
 }
 
 
