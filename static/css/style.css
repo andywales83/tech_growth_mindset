@@ -232,6 +232,17 @@ footer ul li a i {
     margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 600px){
+    .edit-btn, 
+    .submit-btn, 
+    .add-btn,
+    .delete-btn, 
+    .cancel-btn, 
+    .reset-btn {
+        font-size: 10px;
+    }
+}
+
 
 /* ----------- Resource Card/Panel Styling ---------- */
 .home-card-panel {
