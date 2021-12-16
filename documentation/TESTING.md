@@ -136,4 +136,4 @@
 
 ### Python
 - [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
-   - [Python Validation](/documentation/images/validator_screenshots/python_pep8online_final.png)
+   - [Python Validation](/documentation/images/testing-images/pep8-validation.png)
