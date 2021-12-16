@@ -122,7 +122,7 @@
    - Add Resources Page - No errors in testing.
       - [Add Resources Page Validation](/documentation/images/testing-images/add-resource-validation.png)
    - Edit Resource Page - No errors in testing.
-      - [Edit Resource Page Validation](#)
+      - [Edit Resource Page Validation](/documentation/images/testing-images/edit-resource-validation.png)
    - Add Category Page - No errors in testing.
       - [Add Category Page Validation](/documentation/images/testing-images/add-category-validation.png)
    - Add Topic Page - No errors in testing and finally
