@@ -122,20 +122,25 @@ def logout():
 # ---------- Create Resource Functionality ---------- #
 @app.route("/add_resource", methods=["GET", "POST"])
 def add_resource():
-    if request.method == "POST":
-        form_data = {
-            "resource_name": request.form.get("resource_name"),
-            "category_name": request.form.get("category_name"),
-            "resource_topic": request.form.get("resource_topic"),
-            "date_added": request.form.get("date_added"),
-            "resource_description": request.form.get("resource_description"),
-            "resource_link": request.form.get("resource_link"),
-            "created_by": session["user"],
-            "weekly_featured": request.form.get("weekly_featured")
-        }
-        mongo.db.resources.insert_one(form_data)
-        flash("Awesome! Your resource has been added.")
-        return redirect(url_for("get_resources"))
+    if "user" not in session:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for("login"))
+    else:
+        if request.method == "POST":
+            form_data = {
+                "resource_name": request.form.get("resource_name"),
+                "category_name": request.form.get("category_name"),
+                "resource_topic": request.form.get("resource_topic"),
+                "date_added": request.form.get("date_added"),
+                "resource_description": request.form.get(
+                    "resource_description"),
+                "resource_link": request.form.get("resource_link"),
+                "created_by": session["user"],
+                "weekly_featured": request.form.get("weekly_featured")
+            }
+            mongo.db.resources.insert_one(form_data)
+            flash("Awesome! Your resource has been added.")
+            return redirect(url_for("get_resources"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
@@ -146,7 +151,12 @@ def add_resource():
 # ---------- Read Resource Functionality ---------- #
 @app.route("/get_resources/")
 def get_resources():
-    resources = list(mongo.db.resources.find())
+    if "user" not in session:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for("login"))
+    else:
+        resources = list(mongo.db.resources.find())
+
     return render_template("resources.html", resources=resources,
                            page_title="Resources")
 
@@ -159,23 +169,29 @@ def edit_resource(resource_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     topics = mongo.db.topics.find().sort("topic_name", 1)
 
-    if request.method == "POST":
-        weekly_featured = "on" if request.form.get(
-            "weekly_featured") else "off"
+    if "user" not in session:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for("login"))
+    else:
+        if request.method == "POST":
+            weekly_featured = "on" if request.form.get(
+                "weekly_featured") else "off"
 
-        edit_data = {
-            "resource_name": request.form.get("resource_name"),
-            "category_name": request.form.get("category_name"),
-            "resource_topic": request.form.get("resource_topic"),
-            "date_added": request.form.get("date_added"),
-            "resource_description": request.form.get("resource_description"),
-            "resource_link": request.form.get("resource_link"),
-            "created_by": session["user"],
-            "weekly_featured": weekly_featured
-        }
-        mongo.db.resources.update({"_id": ObjectId(resource_id)}, edit_data)
-        flash("Your resource has been updated.")
-        return redirect(url_for("get_resources"))
+            edit_data = {
+                "resource_name": request.form.get("resource_name"),
+                "category_name": request.form.get("category_name"),
+                "resource_topic": request.form.get("resource_topic"),
+                "date_added": request.form.get("date_added"),
+                "resource_description": request.form.get(
+                    "resource_description"),
+                "resource_link": request.form.get("resource_link"),
+                "created_by": session["user"],
+                "weekly_featured": weekly_featured
+            }
+            mongo.db.resources.update({"_id": ObjectId(resource_id)},
+                                      edit_data)
+            flash("Your resource has been updated.")
+            return redirect(url_for("get_resources"))
 
     return render_template("edit_resource.html", resource=resource,
                            categories=categories, topics=topics,
