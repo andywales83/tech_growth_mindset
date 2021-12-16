@@ -86,6 +86,11 @@ main {
     background-color: var(--vermillion-accent);
 }
 
+.btn.resource-link-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 /* --- Scroll to top button --- */
 .scrollToTop{
     font-weight: bold;
