@@ -69,6 +69,7 @@
                     <p><em>Added by: {{ resource.created_by }}</em></p>
 
 
+                    <!-- Shows Edit and Delete Button Content Creator and Admin -->
                     {% if session.user|lower == resource.created_by|lower or session.user|lower == "admin"|lower %}
                     <div class="row">
                         <div class="card-action">
