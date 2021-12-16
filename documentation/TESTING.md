@@ -135,7 +135,5 @@
       - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
 
 ### Python
-- [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
-   - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
 - [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
-   - [Final Python Validated](/documentation/images/validator_screenshots/python_pep8online_final.png)
+   - [Python Validation](/documentation/images/validator_screenshots/python_pep8online_final.png)
