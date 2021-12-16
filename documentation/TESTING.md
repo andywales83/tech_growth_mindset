@@ -82,3 +82,60 @@
     - [Weekly Featured Switch](/documentation/images/testing-images/weekly-featured-toggle.png)
 
 
+## Testing and Validation
+
+### Lighthouse (Google Dev Tools)
+
+
+
+### [Am I Responsive](http://ami.responsivedesign.is/)
+- To view images of the website on different devices.
+- [Am I Responsive ](/documentation/images/testing-images/am-I-responsive-home.png)
+
+### JavaScript
+- [JSHint](https://jshint.com/)
+   - [JavaScript Validation](/documentation/images/testing-images/jshint.png)
+   - Addressing errors and warnings: 
+      - In the initial testing a warning for ''let' is available in ES6 (use 'esversion: 6') is presented. If the following shrot line of code is added, /*jshint esversion: 6 */ to the top of code so that JSHint does not raise unnecessary warnings for ECMAScript 6 features, the the initial warning no longer appears and can be safely ignored.
+      - JSHint flags Jquery $ symbol as an undefined variable - safely ignored. 
+
+### [CSS: W3C CSS validation](https://jigsaw.w3.org/css-validator/)
+- To validate the CCS code of the project pasting code in by direct input method.
+- The validation of the css file shows no issues and passes its checks in full
+- [CSS Validation](/documentation/images/testing-images/css-validation.png)
+
+### [HTML: W3C Markup Validation](https://validator.w3.org/)
+- To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
+- Testing and results per page:
+   - Home Page - No errors in testing.
+      - [Home Page Validation](/documentation/images/testing-images/home-page-validation.png)
+   - Log In Page - No Errors in testing.
+      - [Log In Page Validation](/documentation/images/testing-images/login-page-validation.png)
+   - Register Page - No errors in testing.
+      - [Register Page Validation](/documentation/images/testing-images/register-page-validation.png)
+   - Profile Page - No errors in testing.
+      - [Profile Page Validation](/documentation/images/testing-images/profile-page-validation.png)
+   - Admin Dashboard Page - No errors in testing.
+      - [Admin Dashboard Page Validation](/documentation/images/testing-images/admin-page-validation.png)
+   - Resource Page - No errors in testing.
+      - [Resource Page Validation](/documentation/images/testing-images/resource-page-validation.png)
+   - Add Resources Page - No errors in testing.
+      - [Add Resources Page Validation](/documentation/images/testing-images/add-resource-validation.png)
+   - Edit Resource Page - No errors in testing.
+      - [Edit Resource Page Validation](#)
+   - Add Category Page - No errors in testing.
+      - [Add Category Page Validation](/documentation/images/testing-images/add-category-validation.png)
+   - Add Topic Page - No errors in testing and finally
+      - [Add Topic Page Validation](/documentation/images/testing-images/add-topic-validation.png)
+   - Manage Categories Page - No errors in testing and finally
+      - [Manage Categoryies Page Validation](/documentation/images/testing-images/manage-categories-validation.png)
+   - Manage Topics Page - No Errors in testing and finally
+      - [Manage Topics Page Validation](/documentation/images/testing-images/manage-topics-validation.png)
+   - Error Pages - No errors in testing and finally
+      - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
+
+### Python
+- [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
+   - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
+- [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
+   - [Final Python Validated](/documentation/images/validator_screenshots/python_pep8online_final.png)
