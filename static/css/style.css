@@ -188,6 +188,16 @@ footer ul li a i {
     margin-bottom: 50px;
 }
 
+/* Content Section  */
+
+.content-text{
+    font-size: 26px;
+}
+
+.icon-block {
+    margin-top: 30px;
+}
+
 @media only screen and (max-width: 600px){
     .landing {
         margin-top: 30px;
