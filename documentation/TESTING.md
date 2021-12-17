@@ -86,7 +86,11 @@
 
 ### Lighthouse (Google Dev Tools)
 
+- The Lighthouse Report for the site's main home page on Mobile was as follows:
+   - [Mobile Lighthouse Report](/documentation/images/testing-images/lighthouse-mobile-home.jpg)
 
+- The Lighthouse Report for the site's main home page on Desktop was as follows:
+   - [Mobile Lighthouse Report](/documentation/images/testing-images/lighthouse-desktop-home.jpg)
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
 - To view images of the website on different devices.
@@ -137,3 +141,4 @@
 ### Python
 - [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
    - [Python Validation](/documentation/images/testing-images/pep8-validation.png)
+
