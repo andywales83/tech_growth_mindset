@@ -34,6 +34,7 @@ main {
 }
 
 
+
 /* ---------- Button Stylings ---------- */
 .btn {
     background-color: transparent;
@@ -116,13 +117,6 @@ main {
 /* display height for flashed messages */
 .flashes h4 {
     line-height: 2;
-}
-
-
-/* ----- what is this styling? ----- */
-h3 {
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 
@@ -283,6 +277,11 @@ p.light {
 
 .card label {
     color: var(--rich-black);
+}
+
+.card .card-content .card-title {
+    font-weight: 400;
+    font-size: 2.28rem;
 }
 
 .no-results-alert {
