@@ -81,6 +81,7 @@
     - [Edit Category](/documentation/images/testing-images/edit-category.png)
     - [Weekly Featured Switch](/documentation/images/testing-images/weekly-featured-toggle.png)
 
+---
 
 ## Testing and Validation
 
@@ -142,3 +143,105 @@
 - [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
    - [Python Validation](/documentation/images/testing-images/pep8-validation.png)
 
+---
+## **Manual testing**
+Manual testing of all elements and functionality on every page
+1. Logo - click on the logo, returns to the “Home” section on all pages.
+2. Navbar 
+   - if *a new visitor* clicks on the Home link on any page - They are redirected to the Home page.
+   - if *a new visitor* clicks on the Login link on any page - They are redirected to the Login page.
+   - if *a new visitor* clicks on the Register link on any page - They are redirected to the Registration page. 
+   - if *Registered user* clicks on the Resource link - They are redirected to the Resources page.
+   - if *Registered user* clicks on the Profile link - They are redirected to the Profile page.
+   - if *Registered user* clicks on the Log Out link - They are logged out of their account and redirected to the Login page.
+   - if *Admin user* clicks on Admin link - They are redirected to the Admin Dashboard page.
+3. Footer 
+   - if *any user* clicks on the Instagram link - They will be redirected to the generic site for Instagram.
+   - if *any user* clicks on the LinkedIn link - They will be redirected to the LinkedIn Page for Andrew Llewellyn.
+   - if *any user* clicks on the Twitter link - They will be redirected to the generic site for Twitter.
+   - if *any user* clicks on the GitHub link - They will be redirected to the GitHub Profile Page for Andrew Llewellyn.
+4. Floating to top button 
+   - When the Return To Top button appears on the screen - clicking the button, moves the view back up to the top of the page.
+5. Home Page
+   - if *any user* clicks on the Registration Button - They are redirected to the Registration page.
+   - if *any user* clicks on each Weekly Featured Resource card link - They are redirected to the specified external link.
+6. Registration & Sign Up Page
+   - if *a new visitor* types in a "Username", "Email" and "Password" to the required fields - validation is given if correct and feedback is given if incorrect.
+      - if the visitor then clicks on the "Register" button, their details are added to the database They are redirected to the Profile page and feedback is given to the user that they are registered.
+   - if *any user* clicks on the "Login Here" link - They are redirected to the Login page.
+7. Log in Page
+   - if *Registered users* type in their user details in the "Username" and "Password" fields validation is given if correct and feedback is given if incorrect.
+      - if the user then clicks on the "Login" button, the user is logged in. They are redirected to the Profile page and feedback is given to the user that they are logged in.
+   - if *any user* clicks on the "Sign up here!" link - They are redirected to the Registration page.
+8. Profile Page 
+   - if *Registered user* clicks on the "Update Email" button - They are faced with a pop-up to enter a new Email address.
+   - if *Registered user* clicks on the "Update Password" button - They are faced with a pop-up to enter a new Password.
+   - if *Registered user* clicks on the "Delete Account" button - They are faced with a pop-up to delete the account.
+      - if the user types in the correct user password and clicks the "Delete" button - the account is deleted from the database and a is given to the user, who is redirected to the Registration page.
+      - if the user clicks on "Cancel" - they go back to the Profile page
+9. Resources Page
+   - if *Registered user* types text in the search field and click on the "Search" button", the relevant matching resource is shown. If there are no matching resources, the user is alerted to try again or add a new resource. 
+   - if the user clicks on the "Reset" button, the search field is reset.
+   - if *Registered user* clicks on the "Add New Resource" - They are redirected to the Add Resource page.
+   - if *Registered user* clicks on the Resource Link button on the Resource card - They are redirected to the specified external link.
+   - if *Registered user* created the resource - they can see the Edit & Delete buttons. This functionality is also visible to any admin of the site.
+      - if the user clicks on each Resource card "Delete" Button - The user is show a modal where they must confirm deletion. If deletion is confirmed the resource is deleted, removed from the database and the user gets a confirmation. If deletion is cancelled, the user is taken back to the resources page.
+      - if the user clicks on each Resource card "Edit" Button - They are redirected to the Edit Resource page.
+10. Add Resource Page
+   - if *Registered user or Admin User* clicks on "Choose Category" and "Choose Topic" they can select a current category or topic.
+   - if *Registered user or Admin User* types text in to the input fields, validation is given if correct and feedback is given if incorrect.
+   - if *Registered user or Admin User* wants to select a date, a date picker opens with the current date and a date can be selected.
+   - if *Registered user or Admin User* clicks on the "Add Resource" button, a new resource is added to the database and a success message is given to the user.
+   - if *Registered user or Admin User* clicks on cancel - go to Resources Page.
+   - if *Admin User* clicks on the Weekly Featured resource toggle button, the resource is added to weekly featured section of home page.
+11. Edit Resource Page
+   - a view of the current details of the resource appears.
+   - if clicking on "Choose Category" and "Choose Topic" they can select a current category or topic.
+   - if typeing in text in fields, validation is given if correct and feedback is given if incorrect.
+   - if the user wants to select a date, a date picker opens with the current date and a date can be selected.
+   - if clicking on the "Update Resource" button, the resource is updated in the database and a success message is given to the user.
+   - if clicking on cancel - the user is taken back to the Resources Page.
+   - if *Admin User* clicks on the Weekly Featured resource toggle button, the resource is added to weekly featured section of home page.
+12. Manage Resource Admin Dashboard Page
+   - if *Admin user* clicks the info button in the category management section, a modal pop-up appears, providing info about Categories.
+   - if *Admin user* clicks the "Add Category" button, they are redirected to the Add Category page. 
+   - if *Admin user* clicks the "Manage Categories" button in the Category section, go Current Categories page.
+   - if *Admin user* clicks the "Edit" button in the Category section, they are redirected to the edit categoory page.
+   - if *Admin user* clicks the "Delete" button in the Category section, the category is deleted.
+   - if *Admin user* clicks the info button, in the topic management section, a modal pop-up appears, providing info about Topics.
+   - if *Admin user* clicks the "Add Topic" button, they are redirected to the Add Category page. 
+   - if *Admin user* clicks the "Manage Topics" button in the Category section, go Current Topics page.
+   - if *Admin user* clicks the "Edit" button in the Topic section, they are redirected to the edit topic page.
+   - if *Admin user* clicks the "Delete" button in the Topic section, the topic is deleted.
+14. Add New Category page
+   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
+   - if *Admin user* click on the "Add Category" button, a new category is added to the database and a success message is given to the user.
+   - if *Admin user* click on cancel, they are redirected back to Admin Dashboard Page.
+15. Edit Category page
+   - view current details of category
+   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect. 
+   - if *Admin user* click on the "Update Category" button, the category is updated in the database and a success message is given to the user.
+   - if *Admin user* click on cancel they are redirected back to Admin Dashboard Page.
+16. Add New Topic page
+   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
+   - if *Admin user* click on the "Add Topic" button, a new Topic is added to the database and a success message is given to the user.
+   - if *Admin user* click on cancel, they are redirected back to Admin Dashboard Page
+17. Edit Topic page
+   - view current details of category
+   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect. 
+   - if *Admin user* click on the "Update Topic" button, the Topic is updated in the database and a success message is given to the user.
+   - if *Admin user* click on cancel they are redirected back to Admin Dashboard Page.
+
+---
+
+## **Bugs and Fixes**
+
+### Known Bugs
+- A bug was picked up, when testing the Form Validation for the select dropdowns on the create and edit resource pages. If a cateogry or topic is selected, border-bottom does not change to a validated state of green, it instead changes to an invalidated state of red. This was discusssed in depth with the support team at the Code Institue who tested the functionality their end. Upon testing their end, the validation was working as it should. This prompted further testing on my side with different devices, and the validation again appeared to work as it should. The issue appeared to be based on something from my system, and as of yet, I am unable to find a reason for it. The issue also happens when testing on other browsers on my system. As it stands, the user will see the validation work correctly.
+
+---
+
+### Deployment
+- Ensured deployed page on Heroku loads up correctly.
+- Ensured Debug variable in app.py file is set to False.
+- Confirmed that there is no difference between the deployed version and the development version.
