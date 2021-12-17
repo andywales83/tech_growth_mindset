@@ -69,6 +69,7 @@ main {
 .cancel-btn, 
 .reset-btn {
     background-color: var(--vermilion);
+    color: white;
 }
 
 .delete-btn:hover, 
