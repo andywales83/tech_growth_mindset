@@ -4,7 +4,7 @@ Tech Growth Mindset is a Web-based Application, specifically built for the Data-
 
 [View the live project on Heroku](https://tech-growth-mindset.herokuapp.com/)
 
-![Am I responsive image](#)
+![Am I responsive image](/documentation/images/testing-images/am-I-responsive-home.png)
 
 ---
 ## **Contents**
@@ -510,6 +510,23 @@ echo web: python app.py
 10. Once the application has been built, click on the 'Open App' button on the dashboard.
 ---
 
-
-
 ## Credits
+
+### **Content**
+- The code and text for this website was created by Andrew Llewellyn.
+
+### **Media**
+- The main Image on the home page is from [Pixabay](https://pixabay.com/)
+
+### **Code**
+- HTML & JS for scroll to top function adapted from [Dev](https://dev.to/ljcdev/scroll-to-top-button-in-vanilla-js-beginners-2nc)
+- HTML for the navbar and form adapted from [Materialize](https://materializecss.com/)
+- HTML for modals adapted from [Materialize](https://materializecss.com/)
+- JQuery for validation from Task Manager walkhtrough project by Code Institute
+
+---
+
+### **Acknowledgements**
+- Thanks to my mentor Brian Macharia for guiding me throughout this project.
+
+##### back to [top](#contents)
