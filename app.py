@@ -109,6 +109,11 @@ def login():
 # ---------- Log Out Functionality ---------- #
 @app.route("/logout")
 def logout():
+    """
+    Log Out - This function logs the user out of the site and removes
+    them from the session. The user will see a message telling them they
+    have been logged out, as they are redirected to the login page.
+    """
     # remove user session cookies
     flash("You have been logged out")
     session.pop("user")
@@ -122,6 +127,12 @@ def logout():
 # ---------- Create Resource Functionality ---------- #
 @app.route("/add_resource", methods=["GET", "POST"])
 def add_resource():
+    """
+    Add Resource. This function first checks if the user is in session.
+    When user is in session and submits a new request, find the resources
+    in the database and add the new items to the database. If this was
+    successful, the user is notified and returned to the resources page.
+    """
     if "user" not in session:
         flash("You must be logged in to view this page.")
         return redirect(url_for("login"))
@@ -151,6 +162,12 @@ def add_resource():
 # ---------- Read Resource Functionality ---------- #
 @app.route("/get_resources/")
 def get_resources():
+    """
+    Get resources function. This function first checks if the
+    user is in session. If the user is not in session, they are
+    redirected to the login page. If user in session, it will find
+    all of the resources in the database and list them on the resources page.
+    """
     if "user" not in session:
         flash("You must be logged in to view this page.")
         return redirect(url_for("login"))
@@ -164,6 +181,13 @@ def get_resources():
 # ---------- Edit Resource Functionality ---------- #
 @app.route("/edit_resource/<resource_id>", methods=["POST", "GET"])
 def edit_resource(resource_id):
+    """
+    Edit Resource function. This first checks the database for the
+    resource and returns a 404 if not found. The functionality also
+    checks if the user is in session and redircets them to the login
+    page if not. If user in session and data can be found, edit page
+    is shown with data pre-populated
+    """
     resource = mongo.db.resources.find_one_or_404(
         {"_id": ObjectId(resource_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -201,6 +225,12 @@ def edit_resource(resource_id):
 # ---------- Delete Resource Functionality ---------- #
 @app.route("/delete_resource/<resource_id>")
 def delete_resource(resource_id):
+    """
+    Delete Resource function. Using the specific ObjectId, the
+    resource is deleted from the database. The user receives a
+    confirmation message and is redirected back to the resources
+    page.
+    """
     mongo.db.resources.remove({"_id": ObjectId(resource_id)})
     flash("Your resource has been deleted!")
     return redirect(url_for("get_resources"))
@@ -209,6 +239,10 @@ def delete_resource(resource_id):
 # ---------- Saerch Functionality ----------- #
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    Search Functionality. To query the resources in the database
+    and find the resources that match the query.
+    """
     query = request.form.get("query")
     resources = list(mongo.db.resources.find({"$text": {"$search": query}}))
     return render_template("resources.html", resources=resources,
@@ -222,6 +256,9 @@ def search():
 # ---------- Link to Admin Page ---------- #
 @app.route("/admin_dashboard")
 def admin_dashboard():
+    """
+    Display Admin Dashboard. This page is restricted to the admin user.
+    """
     if admin():
         return render_template("admin_dashboard.html",
                                page_title="Admin Dashboard")
@@ -235,6 +272,11 @@ def admin_dashboard():
 # ---------- Add New Category ---------- #
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """
+    Add Category. If the function is called using the POST method, then
+    the data from the form is retrieved, and inserted into the database.
+    Otherwise it will display the empty form.
+    """
     if admin():
         if request.method == "POST":
             category = {
@@ -253,6 +295,11 @@ def add_category():
 # ---------- Get Categories From DB ---------- #
 @app.route("/get_categories")
 def get_categories():
+    """
+    Get Categories function. This function can be used by admin only and
+    forms part of the content management basis of the site. This will list the
+    current categories on the site in the manage categories section.
+    """
     if admin():
         categories = list(mongo.db.categories.find().sort("category_name", 1))
     else:
@@ -266,6 +313,12 @@ def get_categories():
 # ---------- Edit Category ---------- #
 @app.route("/edit_category/<category_id>", methods=["POST", "GET"])
 def edit_category(category_id):
+    """
+    Edit Category Functionality. If the admin user submits an edit request,
+    then the Category is retrieved from the database, updated in the database
+    and after the user receives a message, they are taken back to the manage
+    page.
+    """    
     if admin():
         if request.method == "POST":
             submit = {
@@ -280,6 +333,7 @@ def edit_category(category_id):
     else:
         flash("You must be the Admin to view this page.")
         return redirect(url_for("login"))
+    
     return render_template("edit_category.html", category=category,
                            page_title="Edit Category")
 
@@ -287,12 +341,15 @@ def edit_category(category_id):
 # ---------- Delete Category ---------- #
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    if admin():
-        mongo.db.categories.remove({"_id": ObjectId(category_id)})
-        flash("The category was deleted")
-    else:
-        flash("You must be the Admin to view this page.")
-        return redirect(url_for("login"))
+    """
+    Delete Category Functionality. If the admin user wants to delete a
+    category, then using the remove() method, it is deleted in the
+    database. Thereafter, the user receives a message and they are
+    taken back to the manage page.
+    """
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("The category was deleted")
+
     return redirect(url_for("get_categories"))
 
 
@@ -301,13 +358,22 @@ def delete_category(category_id):
 # ---------- Add New Topic ---------- #
 @app.route("/add_topic", methods=["GET", "POST"])
 def add_topic():
-    if request.method == "POST":
-        topic = {
-            "topic_name": request.form.get("topic_name")
-        }
-        mongo.db.topics.insert_one(topic)
-        flash("Your new topic was added!")
-        return redirect(url_for("admin_dashboard"))
+    """
+    Add Topic. If the function is called using the POST method, then
+    the data from the form is retrieved, and inserted into the database.
+    Otherwise it will display the empty form.
+    """
+    if admin():
+        if request.method == "POST":
+            topic = {
+                "topic_name": request.form.get("topic_name")
+            }
+            mongo.db.topics.insert_one(topic)
+            flash("Your new topic was added!")
+            return redirect(url_for("admin_dashboard"))
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
 
     return render_template("add_topic.html", page_title="Add A Topic")
 
@@ -315,6 +381,11 @@ def add_topic():
 # ---------- Get Topics From DB ----------#
 @app.route("/get_topics")
 def get_topics():
+    """
+    Get Topics function. This function can be used by admin only and
+    forms part of the content management basis of the site. This will list the
+    current Topics on the site in the manage topicss section.
+    """
     topics = list(mongo.db.topics.find().sort("topic_name", 1))
     return render_template("topics.html", topics=topics,
                            page_title="Topics")
@@ -323,15 +394,26 @@ def get_topics():
 # ---------- Edit Topic ---------- #
 @app.route("/edit_topic/<topic_id>", methods=["POST", "GET"])
 def edit_topic(topic_id):
-    if request.method == "POST":
-        submit = {
-            "topic_name": request.form.get("topic_name")
-        }
-        mongo.db.topics.update({"_id": ObjectId(topic_id)}, submit)
-        flash("The topic was updated")
-        return redirect(url_for("get_categories"))
+    """
+    Edit Topic Functionality. If the user submits an edit request, then
+    the topic is retrieved from the database, updated in the database and
+    after the user receives a message, they are taken back to the manage page.
+    """
+    if admin():
+        if request.method == "POST":
+            topic = mongo.db.topics.find_one_or_404(
+                {"_id": ObjectId(topic_id)})
+            submit = {
+                "topic_name": request.form.get("topic_name")
+            }
+            mongo.db.topics.update({"_id": ObjectId(topic_id)}, submit)
+            flash("The topic was updated")
+            return redirect(url_for("get_categories"))
 
-    topic = mongo.db.topics.find_one_or_404({"_id": ObjectId(topic_id)})
+    else:
+        flash("You must be the Admin to view this page.")
+        return redirect(url_for("login"))
+
     return render_template("edit_topic.html", topic=topic,
                            page_title="Edit Topics")
 
@@ -339,8 +421,15 @@ def edit_topic(topic_id):
 # ---------- Delete Topic ---------- #
 @app.route("/delete_topic/<topic_id>")
 def delete_topic(topic_id):
+    """
+    Delete Topic Functionality. If the admin user wants to delete a topic,
+    then using the remove() method, it is deleted in the database. Thereafter,
+    the user receives a message and they are taken back to the manage
+    page.
+    """
     mongo.db.topics.remove({"_id": ObjectId(topic_id)})
     flash("The topic was deleted")
+            
     return redirect(url_for("get_topics"))
 
 
@@ -353,6 +442,7 @@ def profile(username):
     resources = list(mongo.db.resources.find(
         {"created_by": session["user"]}))
 
+    # if the user is in session, render the profile template in their name
     if session["user"]:
         return render_template("profile.html", username=username,
                                resources=resources, page_title="Profile")
@@ -362,6 +452,10 @@ def profile(username):
 
 @app.route("/change_email/<username>", methods=["POST", "GET"])
 def change_email(username):
+    """
+    Change Email Functionality where the user can change their current
+    password on their profile page.
+    """
     if request.method == "POST":
         new_email = request.form.get("email").lower()
         mongo.db.users.update(
@@ -373,6 +467,10 @@ def change_email(username):
 
 @app.route("/change_password/<username>", methods=["POST", "GET"])
 def change_password(username):
+    """
+    Change Password Functionality where the user can change their current
+    password on their profile page.
+    """
     if request.method == "POST":
         new_password = generate_password_hash(request.form.get
                                               ("new_password"))
@@ -386,6 +484,10 @@ def change_password(username):
 # --- Delete Profile Functionality --- #
 @app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
+    """
+    Delete Profile Functionality where the user can delete their account
+    on their profile page.
+    """
     user = mongo.db.users.find_one({'username': session["user"]})
     # Checks if password matches existing password in database
     if check_password_hash(user["password"],
@@ -406,18 +508,27 @@ def delete_account(user_id):
 # --- 404 Handler --- #
 @app.errorhandler(404)
 def page_not_found(e):
+    """
+    Renders a custom 404 error page with a button
+    that takes the user back to the home page.
+    """
     return render_template("errors/404.html", page_title="404"), 404
 
 
 # --- 500 Handler --- #
 @app.errorhandler(500)
 def internal_server_error(e):
+    """
+    Renders a custom 500 error page with a button
+    that takes the user back to the home page.
+    """
     return render_template("errors/500.html", page_title="500"), 500
 
 
 @app.route("/")
 @app.route("/index/")
 def index():
+    """Renders the template for the home page"""
     resources = list(mongo.db.resources.find(
         {"weekly_featured": "on"}))
     return render_template("index.html", resources=resources,
